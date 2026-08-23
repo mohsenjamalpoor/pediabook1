@@ -54,16 +54,16 @@ function HomePage() {
             /> */}
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12.5px] text-ink-muted">
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12.5px] text-[#6b675c]">
             <span className="flex items-center gap-1.5">
-              <LuBookOpen className="h-4 w-4 text-clay-600" />
-              <span className="font-mono tabular-nums text-ink">
+              <LuBookOpen className="h-4 w-4 text-[#b3742c]" />
+              <span className="font-mono tabular-nums text-[#16231f]">
                 {topicCount}
               </span>{" "}
               سرفصل بالینی
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="font-mono tabular-nums text-ink">
+              <span className="font-mono tabular-nums text-[#16231f]">
                 {categories.length}
               </span>{" "}
               بخش تخصصی
