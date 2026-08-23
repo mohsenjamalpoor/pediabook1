@@ -1,5 +1,6 @@
 import { Vazirmatn, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/template/header";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -37,7 +38,10 @@ export default function RootLayout({ children }) {
       dir="rtl"
       className={`${vazirmatn.variable} ${plexMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
