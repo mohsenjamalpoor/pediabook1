@@ -32,10 +32,10 @@ function HomePage() {
             مرجع آموزشی رزیدنت و فلوشیپ اطفال
           </span>
 
-          <h1 className="max-w-2xl text-[28px] font-extrabold leading-normal text-ink sm:text-[34px]">
+          <h1 className="max-w-2xl text-[28px] font-extrabold leading-normal text-[#16231f] sm:text-[34px]">
             نکات کاربردی بیماری‌های شایع و اورژانس‌های اطفال
           </h1>
-          <p className="mt-3 max-w-xl text-[14.5px] leading-8 text-ink-muted">
+          <p className="mt-3 max-w-xl text-[14.5px] leading-8 text-[#6b675c]">
             نسخه وب کتاب PICU — تشخیص، خط درمانی، دوز داروی وزن‌محور و نسخه‌های
             نمونه، دسته‌بندی‌شده و قابل‌جستجو برای استفاده سریع بالینی.
           </p>
@@ -43,7 +43,7 @@ function HomePage() {
           <div className="mt-7">
             <label
               htmlFor="home-disease-search"
-              className="mb-2 block text-[12.5px] font-semibold text-ink-soft"
+              className="mb-2 block text-[12.5px] font-semibold text-[#2a3a34]"
             >
               نام بیماری را جستجو کنید
             </label>
