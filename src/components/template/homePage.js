@@ -16,7 +16,7 @@ function HomePage() {
   const topicCount = getAllTopics().length;
   return (
     <div>
-      <section className="relative mb-10 overflow-hidden rounded-3xl border border-line bg-paper-card px-6 py-10 shadow-card sm:px-10 sm:py-14">
+      <section className="relative mb-10 overflow-hidden rounded-3xl border border-[#e4dcc8] bg-[#fffdf8] px-6 py-10 shadow-xl sm:px-10 sm:py-14">
         <div
           className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-teal-100/70 blur-2xl"
           aria-hidden="true"
