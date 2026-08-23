@@ -7,7 +7,7 @@ function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-[rgb(250_247_239/0.85)] backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-[#e4dcc8] bg-[rgb(250_247_239/0.85)] backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6">
         <button
           onClick={() => setDrawerOpen(true)}
@@ -18,14 +18,14 @@ function Header() {
         </button>
 
         <Link href="/" className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-800 text-[#fffdf8] shadow-tab">
-            <LuStethoscope className="h-4.5 w-4.5 " strokeWidth={1.8} />
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-800 text-[#fffdf8] shadow-[0_2px_8px_-2px_rgba(22,35,31,0.18)]">
+            <LuStethoscope className="h-4.5 w-4.5" strokeWidth={1.8} />
           </span>
           <span className="hidden sm:block">
-            <span className="block text-[13.5px] font-extrabold leading-4 text-ink">
+            <span className="block text-[13.5px] font-extrabold leading-4 text-[#16231f]">
               کتاب کاربردی اطفال
             </span>
-            <span className="block text-[11px] leading-4 text-ink-muted">
+            <span className="block text-[11px] leading-4 text-[#6b675c]">
               بیماری‌های شایع و اورژانس‌های کودکان
             </span>
           </span>
