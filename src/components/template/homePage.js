@@ -7,6 +7,7 @@ import {
   getSearchIndex,
 } from "@/utils/data";
 import { LuBookOpen, LuGraduationCap } from "react-icons/lu";
+import DiseaseSearchInput from "../module/DiseaseSearchInput";
 
 const categoriesBySlug = Object.fromEntries(categories.map((c) => [c.slug, c]));
 
@@ -47,11 +48,11 @@ function HomePage() {
             >
               نام بیماری را جستجو کنید
             </label>
-            {/* <DiseaseSearchInput
+            <DiseaseSearchInput
               id="home-disease-search"
               searchIndex={searchIndex}
               categoriesBySlug={categoriesBySlug}
-            /> */}
+            />
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12.5px] text-[#6b675c]">
