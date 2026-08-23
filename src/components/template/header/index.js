@@ -33,7 +33,7 @@ function Header() {
 
         <button
           onClick={() => setSearchOpen(true)}
-          className="mr-auto flex w-full max-w-sm items-center gap-2.5 rounded-xl border border-line bg-paper-card px-3.5 py-2 text-sm text-ink-muted shadow-card transition hover:border-teal-200"
+          className="mr-auto flex w-full max-w-sm items-center gap-2.5 rounded-xl border border-[#e4dcc8] bg-[#fffdf8] px-3.5 py-2 text-sm text-[#6b675c] shadow-[0_1px_2px_rgba(22,35,31,0.04),0_8px_24px_-12px_rgba(22,35,31,0.15)] transition hover:border-teal-200"
         >
           <LuSearch className="h-4 w-4 shrink-0" />
           <span className="flex-1 truncate text-right">جستجو در سرفصل‌ها…</span>
