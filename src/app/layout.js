@@ -1,6 +1,7 @@
 import { Vazirmatn, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/template/header";
+import Footer from "@/components/template/footer";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
       <body className="antialiased">
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
