@@ -5,11 +5,61 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /* fonts (CSS vars set on <html> by next/font in app/layout.js —
+     next/font exposes them as --font-vazir / --font-mono-src to avoid
+     colliding with Tailwind's own theme token names below) */
+  --font-display: var(--font-vazir), Tahoma, sans-serif;
+  --font-body: var(--font-vazir), Tahoma, sans-serif;
+  --font-mono: var(--font-mono-src), ui-monospace, monospace;
+
+  /* paper / ink — warm "chart paper" neutrals */
+  --color-paper: #faf7ef;
+  --color-paper-soft: #f3efe3;
+  --color-paper-card: #fffdf8;
+
+  --color-ink: #16231f;
+  --color-ink-soft: #2a3a34;
+  --color-ink-muted: #6b675c;
+
+  --color-line: #e4dcc8;
+  --color-line-soft: #eee8d9;
+
+  /* teal — primary clinical accent (only overrides these shades;   */
+  /* undefined shades like teal-300/400 fall back to Tailwind's own) */
+  --color-teal-950: #052a26;
+  --color-teal-900: #0a3b34;
+  --color-teal-800: #0f6e63;
+  --color-teal-700: #128577;
+  --color-teal-600: #17a08f;
+  --color-teal-500: #22b8a4;
+  --color-teal-200: #bfe9e0;
+  --color-teal-100: #dff4ee;
+  --color-teal-50: #f0faf7;
+
+  /* clay — "prescription pad" dosage/note accent */
+  --color-clay-900: #5c3a16;
+  --color-clay-800: #7a4b1c;
+  --color-clay-700: #96591f;
+  --color-clay-600: #b3742c;
+  --color-clay-500: #c68b45;
+  --color-clay-200: #f0d9b8;
+  --color-clay-100: #f7e9d2;
+  --color-clay-50: #fbf3e6;
+
+  /* brick — emergency / red-flag accent */
+  --color-brick-900: #4a1712;
+  --color-brick-700: #7c2b22;
+  --color-brick-600: #a23b2e;
+  --color-brick-500: #c24b3b;
+  --color-brick-200: #f1cac2;
+  --color-brick-100: #f8e3de;
+  --color-brick-50: #fcf0ed;
+
+  /* shadows */
+  --shadow-card:
+    0 1px 2px rgba(22, 35, 31, 0.04), 0 8px 24px -12px rgba(22, 35, 31, 0.15);
+  --shadow-tab: 0 2px 8px -2px rgba(22, 35, 31, 0.18);
 }
 
 @media (prefers-color-scheme: dark) {
