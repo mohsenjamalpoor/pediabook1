@@ -1,7 +1,5 @@
 import { Vazirmatn, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/template/header";
-import Footer from "@/components/template/footer";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -12,7 +10,7 @@ const vazirmatn = Vazirmatn({
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-mono",
+  variable: "--font-mono-src",
   display: "swap",
 });
 
@@ -34,16 +32,8 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="fa"
-      dir="rtl"
-      className={`${vazirmatn.variable} ${plexMono.variable}`}
-    >
-      <body className="antialiased">
-        <Header />
-        {children}
-        <Footer />
-      </body>
+    <html lang="fa" dir="rtl" className={`${vazirmatn.variable} ${plexMono.variable}`}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
