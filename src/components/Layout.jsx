@@ -3,10 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { LuSearch, LuMenu, LuX, LuStethoscope, LuCommand } from "react-icons/lu";
+import {
+  LuSearch,
+  LuMenu,
+  LuX,
+  LuStethoscope,
+  LuCommand,
+} from "react-icons/lu";
 import Sidebar from "./Sidebar";
 import SearchOverlay from "./SearchOverlay";
-import { getCategoriesWithTopics, getSearchIndex, categories } from "@/lib/data";
+import {
+  getCategoriesWithTopics,
+  getSearchIndex,
+  categories,
+} from "@/lib/data";
 import { useResetOnChange } from "@/core/utils/useResetOnChange";
 
 const categoriesBySlug = Object.fromEntries(categories.map((c) => [c.slug, c]));
@@ -61,7 +71,9 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
             className="mr-auto flex w-full max-w-sm items-center gap-2.5 rounded-xl border border-line bg-paper-card px-3.5 py-2 text-sm text-ink-muted shadow-card transition hover:border-teal-200"
           >
             <LuSearch className="h-4 w-4 shrink-0" />
-            <span className="flex-1 truncate text-right">جستجو در سرفصل‌ها…</span>
+            <span className="flex-1 truncate text-right">
+              جستجو در سرفصل‌ها…
+            </span>
             <span className="hidden shrink-0 items-center gap-0.5 rounded-md border border-line bg-paper-soft px-1.5 py-0.5 text-[10px] text-ink-muted sm:flex">
               <LuCommand className="h-3 w-3" />K
             </span>
@@ -71,7 +83,7 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[272px_1fr] lg:gap-10 lg:py-10">
         <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-[calc(100vh-7rem)]">
+          <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-1">
             <Sidebar
               categoriesWithTopics={categoriesWithTopics}
               activeCategory={activeCategory}
@@ -82,7 +94,10 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
 
         {drawerOpen && (
           <div className="fixed inset-0 z-50 lg:hidden">
-            <div className="absolute inset-0 bg-ink/40" onClick={() => setDrawerOpen(false)} />
+            <div
+              className="absolute inset-0 bg-ink/40"
+              onClick={() => setDrawerOpen(false)}
+            />
             <div className="absolute inset-y-0 right-0 w-[86%] max-w-xs overflow-y-auto bg-paper px-4 py-4 shadow-2xl">
               <div className="mb-4 flex items-center justify-between">
                 <span className="text-sm font-bold text-ink">فهرست مطالب</span>
@@ -108,7 +123,8 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
       </div>
 
       <footer className="border-t border-line py-8 text-center text-xs text-ink-muted">
-        این محتوا صرفاً ابزار آموزشی برای فراگیران رزیدنتی/فلوشیپ اطفال است و جایگزین قضاوت بالینی و منابع مرجع نیست.
+        این محتوا صرفاً ابزار آموزشی برای فراگیران رزیدنتی/فلوشیپ اطفال است و
+        جایگزین قضاوت بالینی و منابع مرجع نیست.
       </footer>
 
       <SearchOverlay
