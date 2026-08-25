@@ -102,3 +102,96 @@ input:focus-visible,
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
 }
+
+/* index-tab style scrollbar for the sidebar */
+.chart-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.chart-scroll::-webkit-scrollbar-thumb {
+  background: #dccfa8;
+  border-radius: 999px;
+}
+.chart-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Clinical markdown content (topic body)                             */
+/* ------------------------------------------------------------------ */
+
+.clinic-content h2 {
+  @apply mt-10 mb-4 flex items-center gap-3 text-xl font-bold text-ink;
+}
+.clinic-content h2::before {
+  content: "";
+  @apply block h-5 w-1.5 rounded-full bg-clay-600;
+}
+.clinic-content h3 {
+  @apply mt-8 mb-3 text-base font-bold text-teal-800;
+}
+.clinic-content p {
+  @apply my-3 leading-8 text-ink-soft;
+}
+.clinic-content ul {
+  @apply my-3 space-y-2;
+}
+.clinic-content ul > li {
+  @apply relative pr-5 leading-7 text-ink-soft;
+}
+.clinic-content ul > li::before {
+  content: "";
+  @apply absolute right-0 top-2.5 h-1.5 w-1.5 rounded-full bg-clay-500;
+}
+.clinic-content ol {
+  @apply my-3 mr-5 list-decimal space-y-2 leading-7 text-ink-soft;
+}
+.clinic-content strong {
+  @apply font-bold text-ink;
+}
+.clinic-content hr {
+  @apply my-10 border-t border-dashed border-line;
+}
+.clinic-content a {
+  @apply text-teal-700 underline decoration-teal-500/40 underline-offset-2;
+}
+
+.clinic-content table {
+  @apply my-5 w-full border-collapse overflow-hidden rounded-xl border border-line text-sm;
+}
+.clinic-content thead {
+  background-color: var(--color-teal-800);
+  color: var(--color-paper-card);
+}
+.clinic-content th {
+  @apply px-3 py-2.5 text-right text-xs font-bold;
+}
+.clinic-content td {
+  @apply border-t border-line-soft px-3 py-2.5 align-top text-ink-soft;
+}
+.clinic-content tbody tr:nth-child(even) {
+  background-color: rgba(243, 239, 227, 0.6);
+}
+
+.clinic-content blockquote {
+  @apply relative my-6 rounded-xl border border-clay-200 bg-clay-50 px-5 py-4 pr-12 text-[0.95rem] leading-7 text-clay-900;
+}
+.clinic-content blockquote::before {
+  content: "℞";
+  @apply absolute right-4 top-3.5 text-lg font-bold text-clay-600;
+}
+.clinic-content blockquote p {
+  @apply my-0 text-clay-900;
+}
+
+.clinic-content code {
+  @apply rounded bg-teal-50 px-1.5 py-0.5 font-mono text-[0.85em] text-teal-800;
+}
