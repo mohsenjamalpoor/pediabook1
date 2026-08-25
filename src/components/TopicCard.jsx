@@ -7,11 +7,15 @@ export default function TopicCard({ topic, color = "teal" }) {
   return (
     <Link
       href={`/topic/${topic.slug}`}
-      className="group flex flex-col justify-between rounded-2xl border border-line bg-paper-card p-5 shadow-card transition hover:-translate-y-0.5 hover:border-teal-200"
+      className="group flex flex-col justify-between rounded-2xl border border-[#e4dcc8] bg-[#fffdf8] p-5 shadow transition hover:-translate-y-0.5 hover:border-teal-200"
     >
       <div>
-        <h3 className="mb-1.5 text-[15px] font-bold leading-6 text-ink">{topic.title}</h3>
-        <p className="line-clamp-2 text-[13px] leading-6 text-ink-muted">{topic.summary}</p>
+        <h3 className="mb-1.5 text-[15px] font-bold leading-6 text-[#16231f]">
+          {topic.title}
+        </h3>
+        <p className="line-clamp-2 text-[13px] leading-6 text-[#6b675c]">
+          {topic.summary}
+        </p>
       </div>
       <div className="mt-4 flex items-center justify-between">
         <div className="flex flex-wrap gap-1.5">
@@ -24,7 +28,7 @@ export default function TopicCard({ topic, color = "teal" }) {
             </span>
           ))}
         </div>
-        <LuArrowLeft className="h-4 w-4 shrink-0 text-ink-muted transition group-hover:-translate-x-0.5 group-hover:text-teal-700" />
+        <LuArrowLeft className="h-4 w-4 shrink-0 text-[#6b675c] transition group-hover:-translate-x-0.5 group-hover:text-teal-700" />
       </div>
     </Link>
   );

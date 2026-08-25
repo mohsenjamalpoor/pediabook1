@@ -29,17 +29,28 @@ export default async function CategoryPage({ params }) {
 
   return (
     <Layout activeCategory={category.slug}>
-      <Breadcrumb items={[{ label: "خانه", href: "/" }, { label: category.title }]} />
+      <Breadcrumb
+        items={[{ label: "خانه", href: "/" }, { label: category.title }]}
+      />
 
-      <div className="mb-8 flex items-center gap-4 rounded-2xl border border-line bg-paper-card p-5 shadow-card">
-        <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${tokens.bgSoft}`}>
-          <CategoryIcon icon={category.icon} className={`h-6 w-6 ${tokens.text}`} />
+      <div className="mb-8 flex items-center gap-4 rounded-2xl border border-[#e4dcc8] bg-[#fffdf8] p-5 shadow">
+        <span
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${tokens.bgSoft}`}
+        >
+          <CategoryIcon
+            icon={category.icon}
+            className={`h-6 w-6 ${tokens.text}`}
+          />
         </span>
         <div>
-          <h1 className="text-[19px] font-extrabold text-ink">{category.title}</h1>
-          <p className="text-[13px] text-ink-muted">{category.description}</p>
+          <h1 className="text-[19px] font-extrabold text-[#16231f]">
+            {category.title}
+          </h1>
+          <p className="text-[13px] text-[#6b675c]">{category.description}</p>
         </div>
-        <span className={`mr-auto rounded-full px-3 py-1 text-xs font-semibold ${tokens.bgSoft} ${tokens.text}`}>
+        <span
+          className={`mr-auto rounded-full px-3 py-1 text-xs font-semibold ${tokens.bgSoft} ${tokens.text}`}
+        >
           {topics.length} سرفصل
         </span>
       </div>
