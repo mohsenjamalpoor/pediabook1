@@ -51,6 +51,7 @@ export default function DiseaseSearchInput({
 
   // هر بار نتایج عوض شد، هایلایت کیبورد ریست شود
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setActiveIndex(results.length > 0 ? 0 : -1);
   }, [results]);
 
