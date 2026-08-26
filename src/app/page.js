@@ -1,4 +1,4 @@
-import { LuBookOpen, LuGraduationCap } from "react-icons/lu";
+import { LuBookOpen, LuGraduationCap, LuShieldCheck } from "react-icons/lu";
 import Layout from "@/components/Layout";
 import CategoryTile from "@/components/CategoryTile";
 import DiseaseSearchInput from "@/components/DiseaseSearchInput";
@@ -15,6 +15,11 @@ export default function HomePage() {
   const categoriesWithTopics = getCategoriesWithTopics();
   const searchIndex = getSearchIndex();
   const topicCount = getAllTopics().length;
+
+  const stats = [
+    { icon: LuBookOpen, value: topicCount, label: "سرفصل بالینی" },
+    { icon: LuShieldCheck, value: categories.length, label: "بخش تخصصی" },
+  ];
 
   return (
     <Layout>
@@ -57,31 +62,43 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12.5px] text-ink-muted">
-            <span className="flex items-center gap-1.5">
-              <LuBookOpen className="h-4 w-4 text-clay-600" />
-              <span className="font-mono tabular-nums text-ink">
-                {topicCount}
-              </span>{" "}
-              سرفصل بالینی
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="font-mono tabular-nums text-ink">
-                {categories.length}
-              </span>{" "}
-              بخش تخصصی
-            </span>
+            {stats.map(({ icon: Icon, value, label }) => (
+              <span key={label} className="flex items-center gap-1.5">
+                <Icon className="h-4 w-4 text-clay-600" />
+                <span className="font-mono tabular-nums text-ink">
+                  {value}
+                </span>{" "}
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      <div className="mb-5 flex items-center justify-between">
-        <h2 className="text-[15px] font-bold text-ink">فهرست مطالب</h2>
-        <span className="text-xs text-ink-muted">بر اساس بخش تخصصی</span>
+      <div className="mb-5 flex items-end justify-between border-b border-line pb-3">
+        <div>
+          <h2 className="text-[15px] font-bold text-ink">فهرست مطالب</h2>
+          <p className="mt-0.5 text-[12px] text-ink-muted">
+            بر اساس بخش تخصصی — برای مشاهده سرفصل‌ها روی هر بخش کلیک کنید
+          </p>
+        </div>
+        <span className="hidden text-xs text-ink-muted sm:block">
+          {categories.length} بخش · {topicCount} سرفصل
+        </span>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {categoriesWithTopics.map((cat, i) => (
-          <CategoryTile key={cat.slug} category={cat} index={i} />
+          <div
+            key={cat.slug}
+            className="animate-fade-in-up"
+            style={{
+              animationDelay: `${i * 40}ms`,
+              animationFillMode: "backwards",
+            }}
+          >
+            <CategoryTile category={cat} index={i} />
+          </div>
         ))}
       </div>
     </Layout>

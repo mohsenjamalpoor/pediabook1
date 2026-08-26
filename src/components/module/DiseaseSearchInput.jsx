@@ -1,16 +1,12 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import Fuse from "fuse.js";
 import { LuSearch, LuX, LuArrowLeft } from "react-icons/lu";
 import { colorTokens } from "@/core/utils/categoryMeta";
 
-/**
- * Always-visible search box for finding a disease/topic by name.
- * Unlike SearchOverlay (Ctrl/⌘K command palette), this sits inline in the
- * page and shows its result list right underneath the input as the person types.
- */
 export default function DiseaseSearchInput({
   searchIndex,
   categoriesBySlug,
@@ -19,9 +15,15 @@ export default function DiseaseSearchInput({
   maxResults = 8,
   id,
 }) {
+  const router = useRouter();
   const wrapRef = useRef(null);
+  const listRef = useRef(null);
+  const reactId = useId();
+  const listboxId = `${id ?? reactId}-listbox`;
+
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   const fuse = useMemo(
     () =>
@@ -36,7 +38,7 @@ export default function DiseaseSearchInput({
         ignoreLocation: true,
         minMatchCharLength: 2,
       }),
-    [searchIndex]
+    [searchIndex],
   );
 
   const results = useMemo(() => {
@@ -47,22 +49,53 @@ export default function DiseaseSearchInput({
 
   const showPanel = focused && query.trim().length > 0;
 
+  // هر بار نتایج عوض شد، هایلایت کیبورد ریست شود
+  useEffect(() => {
+    setActiveIndex(results.length > 0 ? 0 : -1);
+  }, [results]);
+
+  // اسکرول خودکار آیتم هایلایت‌شده به داخل دید
+  useEffect(() => {
+    if (activeIndex < 0 || !listRef.current) return;
+    const el = listRef.current.querySelector(`[data-index="${activeIndex}"]`);
+    el?.scrollIntoView({ block: "nearest" });
+  }, [activeIndex]);
+
   useEffect(() => {
     function onClickOutside(e) {
       if (wrapRef.current && !wrapRef.current.contains(e.target)) {
         setFocused(false);
       }
     }
-    function onKey(e) {
-      if (e.key === "Escape") setFocused(false);
-    }
     document.addEventListener("mousedown", onClickOutside);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onClickOutside);
-      document.removeEventListener("keydown", onKey);
-    };
+    return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
+
+  function goToResult(result) {
+    if (!result) return;
+    setFocused(false);
+    setQuery("");
+    router.push(`/topic/${result.slug}`);
+  }
+
+  function handleKeyDown(e) {
+    if (e.key === "Escape") {
+      setFocused(false);
+      return;
+    }
+    if (!showPanel || results.length === 0) return;
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setActiveIndex((i) => (i + 1) % results.length);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setActiveIndex((i) => (i - 1 + results.length) % results.length);
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      goToResult(results[activeIndex] ?? results[0]);
+    }
+  }
 
   return (
     <div ref={wrapRef} className="relative w-full max-w-md">
@@ -74,15 +107,25 @@ export default function DiseaseSearchInput({
         <LuSearch className="h-4.5 w-4.5 shrink-0 text-teal-700" />
         <input
           id={id}
+          role="combobox"
+          aria-expanded={showPanel}
+          aria-controls={listboxId}
+          aria-activedescendant={
+            activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
+          }
+          aria-autocomplete="list"
+          autoComplete="off"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setFocused(true)}
+          onKeyDown={handleKeyDown}
           placeholder={placeholder}
           autoFocus={autoFocus}
           className="w-full min-w-0 flex-1 bg-transparent text-[13.5px] text-ink placeholder:text-ink-muted focus:outline-none"
         />
         {query && (
           <button
+            type="button"
             onClick={() => setQuery("")}
             aria-label="پاک‌کردن جستجو"
             className="shrink-0 rounded-full p-1 text-ink-muted transition hover:bg-paper-soft hover:text-ink"
@@ -93,24 +136,41 @@ export default function DiseaseSearchInput({
       </div>
 
       {showPanel && (
-        <div className="absolute inset-x-0 top-[calc(100%+8px)] z-30 max-h-96 overflow-y-auto rounded-2xl border border-line bg-paper-card p-2 shadow-2xl">
+        <div
+          id={listboxId}
+          role="listbox"
+          ref={listRef}
+          className="absolute inset-x-0 top-[calc(100%+8px)] z-30 max-h-96 overflow-y-auto rounded-2xl border border-line bg-paper-card p-2 shadow-2xl"
+        >
           {results.length === 0 ? (
             <p className="px-3 py-6 text-center text-[13px] text-ink-muted">
               بیماری‌ای با نام «{query}» پیدا نشد.
             </p>
           ) : (
             <ul className="space-y-0.5">
-              {results.map((r) => {
+              {results.map((r, index) => {
                 const cat = categoriesBySlug[r.category];
                 const tokens = colorTokens(cat?.color);
+                const active = index === activeIndex;
                 return (
-                  <li key={r.slug}>
+                  <li key={r.slug} data-index={index}>
                     <Link
+                      id={`${listboxId}-option-${index}`}
+                      role="option"
+                      aria-selected={active}
                       href={`/topic/${r.slug}`}
-                      onClick={() => setFocused(false)}
-                      className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-right transition hover:bg-paper-soft"
+                      onMouseEnter={() => setActiveIndex(index)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        goToResult(r);
+                      }}
+                      className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-right transition ${
+                        active ? "bg-paper-soft" : "hover:bg-paper-soft"
+                      }`}
                     >
-                      <span className={`h-2 w-2 shrink-0 rounded-full ${tokens.dot}`} />
+                      <span
+                        className={`h-2 w-2 shrink-0 rounded-full ${tokens.dot}`}
+                      />
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-[13.5px] font-semibold text-ink">
                           {r.title}
@@ -119,7 +179,13 @@ export default function DiseaseSearchInput({
                           {cat?.title}
                         </span>
                       </span>
-                      <LuArrowLeft className="h-3.5 w-3.5 shrink-0 text-ink-muted opacity-0 transition group-hover:opacity-100" />
+                      <LuArrowLeft
+                        className={`h-3.5 w-3.5 shrink-0 text-ink-muted transition ${
+                          active
+                            ? "opacity-100"
+                            : "opacity-0 group-hover:opacity-100"
+                        }`}
+                      />
                     </Link>
                   </li>
                 );
