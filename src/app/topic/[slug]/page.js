@@ -14,7 +14,7 @@ import {
 } from "@/lib/data";
 
 export async function generateStaticParams() {
-  return getAllTopics().map((t) => ({ slug: t.slug }));
+  return getAllTopics().map((topic) => ({ slug: topic.slug }));
 }
 
 export async function generateMetadata({ params }) {
