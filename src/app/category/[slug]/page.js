@@ -33,7 +33,7 @@ export default async function CategoryPage({ params }) {
         items={[{ label: "خانه", href: "/" }, { label: category.title }]}
       />
 
-      <div className="mb-8 flex items-center gap-4 rounded-2xl border border-[#e4dcc8] bg-[#fffdf8] p-5 shadow">
+      <div className="mb-8 flex items-center gap-4 rounded-2xl border border-line bg-paper-card p-5 shadow">
         <span
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${tokens.bgSoft}`}
         >
