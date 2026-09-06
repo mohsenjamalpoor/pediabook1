@@ -5,6 +5,9 @@ import Layout from "@/components/Layout";
 import Breadcrumb from "@/components/Breadcrumb";
 import TagPill from "@/components/TagPill";
 import MarkdownContent from "@/components/MarkdownContent";
+import DkaCalculator from "@/components/DkaCalculator";
+import MaintenanceFluidCalculator from "@/components/MaintenanceFluidCalculator";
+import InsulinDripCalculator from "@/components/InsulinDripCalculator";
 import { CategoryIcon, colorTokens } from "@/components/categoryMeta";
 import {
   getAllTopics,
@@ -14,7 +17,7 @@ import {
 } from "@/lib/data";
 
 export async function generateStaticParams() {
-  return getAllTopics().map((topic) => ({ slug: topic.slug }));
+  return getAllTopics().map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }) {
@@ -33,6 +36,7 @@ export default async function TopicPage({ params }) {
   if (!topic) notFound();
 
   const category = getCategory(topic.category);
+  const parent = category.parent ? getCategory(category.parent) : null;
   const { prev, next } = getAdjacentTopics(topic.slug);
   const tokens = colorTokens(category.color);
 
@@ -41,6 +45,9 @@ export default async function TopicPage({ params }) {
       <Breadcrumb
         items={[
           { label: "خانه", href: "/" },
+          ...(parent
+            ? [{ label: parent.title, href: `/category/${parent.slug}` }]
+            : []),
           { label: category.title, href: `/category/${category.slug}` },
           { label: topic.title },
         ]}
@@ -61,7 +68,7 @@ export default async function TopicPage({ params }) {
           </span>
         </div>
 
-        <h1 className="mb-3 text-[24px] font-extrabold leading-normal text-ink sm:text-[28px]">
+        <h1 className="mb-3 text-[24px] font-extrabold leading-[1.5] text-ink sm:text-[28px]">
           {topic.title}
         </h1>
         <p className="mb-5 max-w-2xl text-[14.5px] leading-8 text-ink-muted">
@@ -73,6 +80,14 @@ export default async function TopicPage({ params }) {
             {topic.tags.map((tag) => (
               <TagPill key={tag}>{tag}</TagPill>
             ))}
+          </div>
+        )}
+
+        {topic.slug === "dka" && (
+          <div className="mb-8 space-y-4">
+            <DkaCalculator />
+            <InsulinDripCalculator />
+            <MaintenanceFluidCalculator />
           </div>
         )}
 

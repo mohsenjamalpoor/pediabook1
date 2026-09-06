@@ -2,7 +2,8 @@ import upperRespiratory from "./content/respiratory-upper";
 import feverInfectious from "./content/fever-infectious";
 import gi from "./content/gi";
 import lowerRespiratory from "./content/respiratory-lower";
-import endocrineHeme from "./content/endocrine-heme";
+import endocrine from "./content/endocrine";
+import heme from "./content/heme";
 import derm from "./content/derm";
 import renal from "./content/renal";
 import neonatal from "./content/neonatal";
@@ -12,15 +13,40 @@ import emergency from "./content/emergency";
 /**
  * Category metadata — order here defines the order topics appear in the
  * sidebar / table of contents ("فهرست مطالب").
+ *
+ * A category may declare `parent: "<slug>"` to nest under another category
+ * instead of appearing as its own top-level tab — used for "دستگاه تنفسی"
+ * (respiratory), which splits into "فوقانی" (upper) and "تحتانی" (lower).
+ * Every category, parent or child, still gets its own /category/[slug] page
+ * and its topics still carry that exact category slug — nothing about how
+ * topics are tagged changes, only how the nav groups them.
  */
 export const categories = [
   {
+    slug: "respiratory",
+    title: "دستگاه تنفسی",
+    shortTitle: "تنفسی",
+    color: "sky",
+    icon: "lungs",
+    description: "بیماری‌های تنفسی فوقانی و تحتانی",
+  },
+  {
     slug: "upper-respiratory",
-    title: "عفونت‌های تنفسی فوقانی",
-    shortTitle: "تنفسی فوقانی",
+    parent: "respiratory",
+    title: "تنفسی فوقانی",
+    shortTitle: "فوقانی",
     color: "teal",
     icon: "ear",
     description: "سرماخوردگی، گوش، سینوس و حلق",
+  },
+  {
+    slug: "lower-respiratory",
+    parent: "respiratory",
+    title: "تنفسی تحتانی",
+    shortTitle: "تحتانی",
+    color: "sky",
+    icon: "lungs",
+    description: "سرفه، پنومونی، کروپ، برونشیولیت، آسم",
   },
   {
     slug: "fever-infectious",
@@ -39,26 +65,26 @@ export const categories = [
     description: "اسهال، درد شکم، یبوست، انگل‌ها",
   },
   {
-    slug: "lower-respiratory",
-    title: "تنفسی تحتانی",
-    shortTitle: "تنفسی تحتانی",
-    color: "sky",
-    icon: "lungs",
-    description: "سرفه، پنومونی، کروپ، برونشیولیت، آسم",
+    slug: "endocrine",
+    title: "غدد",
+    shortTitle: "غدد",
+    color: "violet",
+    icon: "gland",
+    description: "تیروئید، ویتامین D",
   },
   {
-    slug: "endocrine-heme",
-    title: "غدد و خون",
-    shortTitle: "غدد و خون",
-    color: "violet",
+    slug: "heme",
+    title: "خون",
+    shortTitle: "خون",
+    color: "rose",
     icon: "droplet",
-    description: "تیروئید، آنمی فقر آهن، ویتامین D",
+    description: "آنمی فقر آهن",
   },
   {
     slug: "derm",
     title: "پوست و بافت نرم",
     shortTitle: "پوست",
-    color: "rose",
+    color: "fuchsia",
     icon: "skin",
     description: "اگزما، سلولیت، دیاپر راش، برفک",
   },
@@ -74,7 +100,7 @@ export const categories = [
     slug: "neonatal",
     title: "نوزادان و شیرخواران",
     shortTitle: "نوزادان",
-    color: "fuchsia",
+    color: "teal",
     icon: "baby",
     description: "زردی، سپسیس نوزادی، معاینه، کولیک، واکسن",
   },
@@ -99,10 +125,11 @@ export const categories = [
 /** Flat, ordered list of every topic in the book, grouped by category order above. */
 export const topics = [
   ...upperRespiratory,
+  ...lowerRespiratory,
   ...feverInfectious,
   ...gi,
-  ...lowerRespiratory,
-  ...endocrineHeme,
+  ...endocrine,
+  ...heme,
   ...derm,
   ...renal,
   ...neonatal,
@@ -134,12 +161,38 @@ export function getCategory(categorySlug) {
   return categories.find((c) => c.slug === categorySlug) || null;
 }
 
-/** Categories paired with their topics, in sidebar order — the shape the nav needs directly. */
+/** Top-level categories only (no `parent`) — what the homepage grid and sidebar iterate over first. */
+export function getTopLevelCategories() {
+  return categories.filter((c) => !c.parent);
+}
+
+/** The child categories nested under a given parent slug, in declared order. */
+export function getChildCategories(parentSlug) {
+  return categories.filter((c) => c.parent === parentSlug);
+}
+
+/**
+ * Top-level categories with their topics attached. A category that has
+ * children (like "respiratory") gets a `children` array instead of a flat
+ * topic list — each child carries its own `topics` — plus a combined
+ * `topics` array (all descendants) so a total count can still be shown.
+ */
 export function getCategoriesWithTopics() {
-  return categories.map((c) => ({
-    ...c,
-    topics: getTopicsByCategory(c.slug),
-  }));
+  return getTopLevelCategories().map((c) => {
+    const children = getChildCategories(c.slug);
+    if (children.length > 0) {
+      const childrenWithTopics = children.map((child) => ({
+        ...child,
+        topics: getTopicsByCategory(child.slug),
+      }));
+      return {
+        ...c,
+        children: childrenWithTopics,
+        topics: childrenWithTopics.flatMap((child) => child.topics),
+      };
+    }
+    return { ...c, topics: getTopicsByCategory(c.slug) };
+  });
 }
 
 /** Previous/next topic in reading order, for prev/next footer links on a topic page. */

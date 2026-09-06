@@ -9,6 +9,7 @@ import {
   LuBaby,
   LuSkull,
   LuSiren,
+  LuActivity,
   LuStethoscope,
 } from "react-icons/lu";
 
@@ -23,6 +24,7 @@ export const ICONS = {
   baby: LuBaby,
   skull: LuSkull,
   siren: LuSiren,
+  gland: LuActivity,
 };
 
 export function CategoryIcon({ icon, className }) {

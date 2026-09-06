@@ -21,6 +21,7 @@ export async function generateMetadata({ params }) {
 
 export default async function CategoryPage({ params }) {
   const { slug } = await params;
+
   const category = getCategory(slug);
   if (!category) notFound();
 
