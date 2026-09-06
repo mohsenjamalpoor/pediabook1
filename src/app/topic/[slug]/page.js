@@ -67,7 +67,7 @@ export default async function TopicPage({ params }) {
           </span>
         </div>
 
-        <h1 className="mb-3 text-[24px] font-extrabold leading-[1.5] text-ink sm:text-[28px]">
+        <h1 className="mb-3 text-[24px] font-extrabold leading-normal text-ink sm:text-[28px]">
           {topic.title}
         </h1>
         <p className="mb-5 max-w-2xl text-[14.5px] leading-8 text-ink-muted">
