@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { LuCalculator, LuDroplets, LuSyringe } from "react-icons/lu";
+import {
+  LuCalculator,
+  LuDroplets,
+  LuSyringe,
+  LuFlaskConical,
+} from "react-icons/lu";
 import { calculateDkaPlan } from "@/core/utils/fluidCalculations";
 
 function fmt(n, digits = 1) {
@@ -26,6 +31,17 @@ export default function DkaCalculator() {
         bloodSugar,
       })
     : null;
+
+  // derive per-serum flow rates from the overall 23h rate and the A/B ratio
+  const ratioA = plan?.batel?.ratioA ?? null;
+  const rateA =
+    ratioA != null && Number.isFinite(plan?.rate23h)
+      ? plan.rate23h * ratioA
+      : null;
+  const rateB =
+    ratioA != null && Number.isFinite(plan?.rate23h)
+      ? plan.rate23h * (1 - ratioA)
+      : null;
 
   return (
     <div className="rounded-3xl border border-clay-200 bg-clay-50/40 p-5 sm:p-6">
@@ -199,33 +215,72 @@ export default function DkaCalculator() {
             </p>
           </div>
 
-          {/* batel guidance */}
+          {/* batel guidance — table */}
           {plan.batel && (
             <div className="rounded-xl border border-line bg-paper-card px-4 py-3.5">
-              <p className="mb-1 text-[12.5px] font-bold text-ink">
-                ترکیب سرم پیشنهادی بر اساس BS = {bloodSugar}
-              </p>
-              <p className="text-[13px] font-semibold text-teal-800">
+              <div className="mb-2 flex items-center gap-2">
+                <LuFlaskConical className="h-4 w-4 text-teal-800" />
+                <p className="text-[12.5px] font-bold text-ink">
+                  ترکیب سرم پیشنهادی بر اساس BS = {bloodSugar}
+                </p>
+              </div>
+
+              <p className="mb-2 text-[13px] font-semibold text-teal-800">
                 {plan.batel.label}
               </p>
+
+              <div className="overflow-hidden rounded-lg border border-line">
+                <table className="w-full border-collapse text-[12.5px]">
+                  <thead>
+                    <tr className="bg-clay-100/60 text-ink-soft">
+                      <th className="px-3 py-2 text-right font-semibold">
+                        نوع سرم
+                      </th>
+                      <th className="px-3 py-2 text-right font-semibold">
+                        ترکیب
+                      </th>
+                      <th className="px-3 py-2 text-right font-semibold">
+                        سهم از حجم
+                      </th>
+                      <th className="px-3 py-2 text-right font-semibold">
+                        سرعت انفوزیون
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-line">
+                    <tr>
+                      <td className="px-3 py-2 font-medium text-ink">باتل A</td>
+                      <td className="px-3 py-2 text-ink-soft">
+                        نرمال سالین (بدون دکستروز)
+                      </td>
+                      <td className="px-3 py-2 tnum font-semibold text-teal-800">
+                        {fmt((plan.batel.ratioA ?? 0) * 100, 0)}٪
+                      </td>
+                      <td className="px-3 py-2 tnum text-ink">
+                        {rateA != null ? `${fmt(rateA, 1)} mL/hr` : "—"}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td className="px-3 py-2 font-medium text-ink">باتل B</td>
+                      <td className="px-3 py-2 text-ink-soft">
+                        سرم دکستروزدار
+                      </td>
+                      <td className="px-3 py-2 tnum font-semibold text-clay-700">
+                        {fmt((1 - (plan.batel.ratioA ?? 0)) * 100, 0)}٪
+                      </td>
+                      <td className="px-3 py-2 tnum text-ink">
+                        {rateB != null ? `${fmt(rateB, 1)} mL/hr` : "—"}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
               {plan.batel.note && (
-                <p className="mt-1 text-[11.5px] text-brick-600">
+                <p className="mt-2 text-[11.5px] text-brick-600">
                   {plan.batel.note}
                 </p>
               )}
-              <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-line-soft">
-                <div
-                  className="h-full bg-teal-700"
-                  style={{
-                    width: `${plan.batel.ratioA * 100}%`,
-                    float: "right",
-                  }}
-                />
-              </div>
-              <div className="mt-1 flex justify-between text-[10.5px] text-ink-muted">
-                <span>باتل B (دکستروزدار)</span>
-                <span>باتل A (سالین)</span>
-              </div>
             </div>
           )}
         </div>

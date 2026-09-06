@@ -29,14 +29,20 @@ export function holidaySegarMaintenance(weightKg) {
  *   concentration (U/mL) = units / volume
  *   rate (mL/hr) = dose(U/kg/hr) × weight(kg) / concentration(U/mL)
  */
-export function calculateInsulinDripRate({ weightKg, doseUPerKgPerHr = 0.1, insulinUnits = 50, salineVolumeMl = 500 }) {
+export function calculateInsulinDripRate({
+  weightKg,
+  doseUPerKgPerHr = 0.1,
+  insulinUnits = 50,
+  salineVolumeMl = 500,
+}) {
   const weight = Math.max(0, Number(weightKg) || 0);
   const dose = Math.max(0, Number(doseUPerKgPerHr) || 0);
   const units = Math.max(0, Number(insulinUnits) || 0);
   const volume = Math.max(0, Number(salineVolumeMl) || 0);
 
   const concentrationUPerMl = volume > 0 ? units / volume : 0;
-  const rateMlPerHr = concentrationUPerMl > 0 ? (dose * weight) / concentrationUPerMl : 0;
+  const rateMlPerHr =
+    concentrationUPerMl > 0 ? (dose * weight) / concentrationUPerMl : 0;
 
   return { weight, dose, units, volume, concentrationUPerMl, rateMlPerHr };
 }
@@ -49,7 +55,12 @@ export function calculateInsulinDripRate({ weightKg, doseUPerKgPerHr = 0.1, insu
  * - Insulin drip: Regular 50U in 500cc NS (0.1 U/mL), rate = dose(U/kg/hr) × weight / 0.1
  * - Batel A/B mix recommended from the current blood sugar
  */
-export function calculateDkaPlan({ weightKg, bolusDoseCcPerKg = 10, insulinDoseUPerKgPerHr = 0.05, bloodSugar }) {
+export function calculateDkaPlan({
+  weightKg,
+  bolusDoseCcPerKg = 10,
+  insulinDoseUPerKgPerHr = 0.05,
+  bloodSugar,
+}) {
   const weight = Math.max(0, Number(weightKg) || 0);
   const bolusDose = Number(bolusDoseCcPerKg) || 0;
   const insulinDose = Number(insulinDoseUPerKgPerHr) || 0;
@@ -57,14 +68,21 @@ export function calculateDkaPlan({ weightKg, bolusDoseCcPerKg = 10, insulinDoseU
   const bolusVolume = weight * bolusDose;
   const maintenance = holidaySegarMaintenance(weight);
   const deficitVolume = 85 * weight;
-  const remaining23hVolume = Math.max(deficitVolume + maintenance.daily - bolusVolume, 0);
+  const remaining23hVolume = Math.max(
+    deficitVolume + maintenance.daily - bolusVolume,
+    0,
+  );
   const rate23h = remaining23hVolume / 23;
 
   // 50 units Regular insulin in 500 mL NS → 0.1 U/mL
   const insulinConcentrationUPerMl = 0.1;
-  const insulinRateMlPerHr = (insulinDose * weight) / insulinConcentrationUPerMl;
+  const insulinRateMlPerHr =
+    (insulinDose * weight) / insulinConcentrationUPerMl;
 
-  const bs = bloodSugar === "" || bloodSugar === undefined || bloodSugar === null ? null : Number(bloodSugar);
+  const bs =
+    bloodSugar === "" || bloodSugar === undefined || bloodSugar === null
+      ? null
+      : Number(bloodSugar);
   let batel = null;
   if (bs !== null && !Number.isNaN(bs)) {
     if (bs < 150) {
@@ -75,9 +93,19 @@ export function calculateDkaPlan({ weightKg, bolusDoseCcPerKg = 10, insulinDoseU
         note: "قطع دریپ انسولین طی ۱۵ دقیقه در نظر گرفته شود.",
       };
     } else if (bs < 250) {
-      batel = { label: "دوسوم باتل B، یک‌سوم باتل A", ratioA: 1 / 3, ratioB: 2 / 3, note: null };
+      batel = {
+        label: "دوسوم باتل B، یک‌سوم باتل A",
+        ratioA: 1 / 3,
+        ratioB: 2 / 3,
+        note: null,
+      };
     } else if (bs < 350) {
-      batel = { label: "دوسوم باتل A، یک‌سوم باتل B", ratioA: 2 / 3, ratioB: 1 / 3, note: null };
+      batel = {
+        label: "دوسوم باتل A، یک‌سوم باتل B",
+        ratioA: 2 / 3,
+        ratioB: 1 / 3,
+        note: null,
+      };
     } else {
       batel = { label: "کل سرم از باتل A", ratioA: 1, ratioB: 0, note: null };
     }
