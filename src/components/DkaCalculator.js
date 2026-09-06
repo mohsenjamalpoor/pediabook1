@@ -34,7 +34,7 @@ export default function DkaCalculator() {
           <LuCalculator className="h-4.5 w-4.5" />
         </span>
         <div>
-          <h3 className="text-[15px] font-bold text-ink">محاسبه‌ دریپ DKA</h3>
+          <h3 className="text-[15px] font-bold text-ink">محاسبه‌گر دریپ DKA</h3>
           <p className="text-[11.5px] text-ink-muted">
             بولوس، برنامه ۲۴ ساعته مایع و دریپ انسولین بر اساس وزن
           </p>
@@ -171,15 +171,15 @@ export default function DkaCalculator() {
             <div className="mb-1 flex items-center gap-2">
               <LuDroplets className="h-4 w-4 text-clay-700" />
               <p className="text-[12.5px] font-bold text-clay-900">
-                برنامه مایع ۲۴ ساعت باقی‌مانده
+                برنامه مایع ۲۳ ساعت باقی‌مانده
               </p>
             </div>
             <p className="text-[12px] leading-6 text-clay-900">
-              (دفیسیت + میترننس − بولوس) ÷ ۲۴ ={" "}
+              (دفیسیت + میترننس − بولوس) ÷ ۲۳ ={" "}
               <span className="font-bold tnum">
                 {fmt(plan.remaining23hVolume)} mL
               </span>{" "}
-              ÷ ۲۴ ={" "}
+              ÷ ۲۳ ={" "}
               <span className="font-bold tnum">{fmt(plan.rate23h)} mL/hr</span>
             </p>
           </div>

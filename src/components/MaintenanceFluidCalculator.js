@@ -15,7 +15,7 @@ function fmt(n) {
  * Can be dropped into any topic page (dehydration, post-op fluids, DKA, …).
  */
 export default function MaintenanceFluidCalculator({
-  title = "محاسبه‌ سرم میترننس (Holliday–Segar)",
+  title = "محاسبه‌گر سرم میترننس (Holliday–Segar)",
 }) {
   const [weight, setWeight] = useState("");
   const w = Number(weight);
