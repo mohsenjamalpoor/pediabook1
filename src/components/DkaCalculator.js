@@ -34,7 +34,7 @@ export default function DkaCalculator() {
           <LuCalculator className="h-4.5 w-4.5" />
         </span>
         <div>
-          <h3 className="text-[15px] font-bold text-ink">محاسبه‌گر دریپ DKA</h3>
+          <h3 className="text-[15px] font-bold text-ink">محاسبه‌ دریپ DKA</h3>
           <p className="text-[11.5px] text-ink-muted">
             بولوس، برنامه ۲۴ ساعته مایع و دریپ انسولین بر اساس وزن
           </p>
