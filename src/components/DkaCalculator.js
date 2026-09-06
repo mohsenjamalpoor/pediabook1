@@ -17,7 +17,7 @@ function fmt(n, digits = 1) {
 export default function DkaCalculator() {
   const [weight, setWeight] = useState("");
   const [bolusDose, setBolusDose] = useState(10);
-  const [insulinDose, setInsulinDose] = useState(0.05);
+  const [insulinDose, setInsulinDose] = useState(0.1);
   const [bloodSugar, setBloodSugar] = useState("");
 
   const w = Number(weight);
