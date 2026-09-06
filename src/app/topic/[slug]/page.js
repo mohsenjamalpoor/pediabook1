@@ -6,7 +6,6 @@ import Breadcrumb from "@/components/Breadcrumb";
 import TagPill from "@/components/TagPill";
 import MarkdownContent from "@/components/MarkdownContent";
 import DkaCalculator from "@/components/DkaCalculator";
-import MaintenanceFluidCalculator from "@/components/MaintenanceFluidCalculator";
 import InsulinDripCalculator from "@/components/InsulinDripCalculator";
 import { CategoryIcon, colorTokens } from "@/components/categoryMeta";
 import {
@@ -87,7 +86,6 @@ export default async function TopicPage({ params }) {
           <div className="mb-8 space-y-4">
             <DkaCalculator />
             <InsulinDripCalculator />
-            <MaintenanceFluidCalculator />
           </div>
         )}
 
