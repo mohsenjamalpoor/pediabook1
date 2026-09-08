@@ -45,7 +45,7 @@ export default function HomePage() {
           <div className="mt-7">
             <label
               htmlFor="home-disease-search"
-              className="mb-2 block text-[12.5px] font-semibold text-ink-soft"
+              className="mb-2 block text-[14px] font-semibold text-ink-soft"
             >
               نام بیماری را جستجو کنید
             </label>
