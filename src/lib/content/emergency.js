@@ -342,7 +342,7 @@ const topics = [
 13. T chart
 14. Control I/O
 15. Foley fix
-16. CBC, Diff, ESR, CRP, Bun, Cr, Na, K, BS, Ca, P, Mg, AST, ALT, VBG
+16. CBC, CRP, Bun, Cr, Na, K, BS, Ca, P, Mg, AST, ALT, VBG
 17. آنتی‌بیوتیک در صورت عفونت
 `,
   },
