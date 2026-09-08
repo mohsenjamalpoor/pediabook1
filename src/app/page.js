@@ -31,7 +31,7 @@ export default function HomePage() {
         <div className="relative">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-[12.5px] font-medium text-teal-800">
             <LuGraduationCap className="h-3.5 w-3.5" />
-            مرجع آموزشی رزیدنت و فلوشیپ اطفال
+            مرجع آموزشی پزشکان عمومی و رزیدنت های اطفال
           </span>
 
           <h1 className="max-w-2xl text-[28px] font-extrabold leading-[1.5] text-ink sm:text-[34px]">
