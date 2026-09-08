@@ -3,15 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import {
-  LuSearch,
-  LuMenu,
-  LuX,
-  LuStethoscope,
-  LuCommand,
-} from "react-icons/lu";
+import { LuMenu, LuX, LuStethoscope } from "react-icons/lu";
 import Sidebar from "./Sidebar";
-import SearchOverlay from "@/components/module/SearchOverlay";
 import {
   getCategoriesWithTopics,
   getSearchIndex,
@@ -113,13 +106,6 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
         این محتوا صرفاً ابزار آموزشی برای فراگیران پزشکان عمومی/رزیدنت های اطفال
         است و جایگزین قضاوت بالینی و منابع مرجع نیست.
       </footer>
-
-      <SearchOverlay
-        open={searchOpen}
-        onClose={() => setSearchOpen(false)}
-        searchIndex={searchIndex}
-        categoriesBySlug={categoriesBySlug}
-      />
     </div>
   );
 }
