@@ -50,7 +50,9 @@ export default function DkaCalculator() {
           <LuCalculator className="h-4.5 w-4.5" />
         </span>
         <div>
-          <h3 className="text-[15px] font-bold text-ink">محاسبه‌گر دریپ DKA</h3>
+          <h3 className="text-[15px] font-bold text-ink">
+            محاسبه‌ سرم و دریپ DKA
+          </h3>
           <p className="text-[11.5px] text-ink-muted">
             بولوس، برنامه ۲۴ ساعته مایع و دریپ انسولین بر اساس وزن
           </p>
@@ -162,7 +164,9 @@ export default function DkaCalculator() {
               </p>
             </div>
             <div className="rounded-xl border border-line bg-paper-card px-4 py-3">
-              <p className="text-[11.5px] text-ink-muted">سرم میترننس روزانه</p>
+              <p className="text-[11.5px] text-ink-muted">
+                سرم maintenance روزانه
+              </p>
               <p className="text-lg font-bold tnum text-teal-800">
                 {fmt(plan.maintenance.daily)}{" "}
                 <span className="text-xs font-normal text-ink-muted">

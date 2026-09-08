@@ -65,7 +65,7 @@ export default function InsulinDripCalculator() {
         </span>
         <div>
           <h3 className="text-[15px] font-bold text-ink">
-            محاسبه‌گر سرعت دریپ انسولین
+            محاسبه‌ سرعت دریپ انسولین
           </h3>
           <p className="text-[11.5px] text-ink-muted">
             وزن بدهید، رقیق‌سازی را انتخاب کنید، سرعت انفوزیون را بگیرید
