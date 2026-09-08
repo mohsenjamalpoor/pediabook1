@@ -191,11 +191,11 @@ export default function DkaCalculator() {
             <div className="mb-1 flex items-center gap-2">
               <LuDroplets className="h-4 w-4 text-clay-700" />
               <p className="text-[12.5px] font-bold text-clay-900">
-                برنامه مایع ۲۳ ساعت باقی‌مانده
+                برنامه مایع درمانی در هر ساعت از ۲۳ ساعت باقی‌مانده
               </p>
             </div>
             <p className="text-[12px] leading-6 text-clay-900">
-              (دفیسیت + میترننس − بولوس) ÷ ۲۳ ={" "}
+              (دفیسیت + maintenance − بولوس) ÷ ۲۳ ={" "}
               <span className="font-bold tnum">
                 {fmt(plan.remaining23hVolume)} mL
               </span>{" "}
