@@ -12,26 +12,12 @@ import {
 } from "@/lib/data";
 import { useResetOnChange } from "@/core/utils/useResetOnChange";
 
-const categoriesBySlug = Object.fromEntries(categories.map((c) => [c.slug, c]));
-
 export default function Layout({ children, activeCategory, activeTopicSlug }) {
   const pathname = usePathname();
-  const [searchOpen, setSearchOpen] = useState(false);
+
   const [drawerOpen, setDrawerOpen] = useResetOnChange(pathname, () => false);
 
   const categoriesWithTopics = getCategoriesWithTopics();
-  const searchIndex = getSearchIndex();
-
-  useEffect(() => {
-    function onKey(e) {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        setSearchOpen(true);
-      }
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
 
   return (
     <div className="min-h-screen">
