@@ -16,7 +16,7 @@ const PRESETS = {
     volume: 500,
   },
   concentrated: {
-    label: "غلیظ — ۱۰۰ واحد در ۲۵۰ سی‌سی (وزن بالا)",
+    label: "غلیظ — ۱۰۰ واحد در ۲۵۰ سی‌سی (وزن بالای)",
     units: 100,
     volume: 250,
   },

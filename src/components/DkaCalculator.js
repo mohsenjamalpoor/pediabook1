@@ -203,7 +203,7 @@ export default function DkaCalculator() {
           </div>
 
           {/* insulin drip */}
-          <div className="rounded-xl border border-line bg-paper-card px-4 py-3.5">
+          {/* <div className="rounded-xl border border-line bg-paper-card px-4 py-3.5">
             <div className="mb-1.5 flex items-center gap-2">
               <LuSyringe className="h-4 w-4 text-teal-800" />
               <p className="text-[12.5px] font-bold text-ink">دریپ انسولین</p>
@@ -215,7 +215,7 @@ export default function DkaCalculator() {
             <p className="mt-1 text-[13px] font-bold tnum text-teal-800">
               سرعت انفوزیون: {fmt(plan.insulinRateMlPerHr, 2)} mL/hr
             </p>
-          </div>
+          </div> */}
 
           {/* batel guidance — table */}
           {plan.batel && (
