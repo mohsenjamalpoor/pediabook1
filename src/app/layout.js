@@ -32,7 +32,11 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fa" dir="rtl" className={`${vazirmatn.variable} ${plexMono.variable}`}>
+    <html
+      lang="fa"
+      dir="rtl"
+      className={`${vazirmatn.variable} ${plexMono.variable}`}
+    >
       <body className="antialiased">{children}</body>
     </html>
   );

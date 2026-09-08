@@ -65,19 +65,6 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
               </span>
             </span>
           </Link>
-
-          <button
-            onClick={() => setSearchOpen(true)}
-            className="mr-auto flex w-full max-w-sm items-center gap-2.5 rounded-xl border border-line bg-paper-card px-3.5 py-2 text-sm text-ink-muted shadow-card transition hover:border-teal-200"
-          >
-            <LuSearch className="h-4 w-4 shrink-0" />
-            <span className="flex-1 truncate text-right">
-              جستجو در سرفصل‌ها…
-            </span>
-            <span className="hidden shrink-0 items-center gap-0.5 rounded-md border border-line bg-paper-soft px-1.5 py-0.5 text-[10px] text-ink-muted sm:flex">
-              <LuCommand className="h-3 w-3" />K
-            </span>
-          </button>
         </div>
       </header>
 
@@ -123,8 +110,8 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
       </div>
 
       <footer className="border-t border-line py-8 text-center text-xs text-ink-muted">
-        این محتوا صرفاً ابزار آموزشی برای فراگیران رزیدنتی/فلوشیپ اطفال است و
-        جایگزین قضاوت بالینی و منابع مرجع نیست.
+        این محتوا صرفاً ابزار آموزشی برای فراگیران پزشکان عمومی/رزیدنت های اطفال
+        است و جایگزین قضاوت بالینی و منابع مرجع نیست.
       </footer>
 
       <SearchOverlay
