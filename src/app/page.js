@@ -1,4 +1,4 @@
-import { LuBookOpen, LuGraduationCap, LuShieldCheck } from "react-icons/lu";
+import { LuBookOpen, LuGraduationCap } from "react-icons/lu";
 import Layout from "@/components/Layout";
 import CategoryTile from "@/components/CategoryTile";
 import DiseaseSearchInput from "@/components/DiseaseSearchInput";
@@ -16,14 +16,9 @@ export default function HomePage() {
   const searchIndex = getSearchIndex();
   const topicCount = getAllTopics().length;
 
-  const stats = [
-    { icon: LuBookOpen, value: topicCount, label: "سرفصل بالینی" },
-    { icon: LuShieldCheck, value: categories.length, label: "بخش تخصصی" },
-  ];
-
   return (
     <Layout>
-      <section className="relative mb-10 overflow-hidden rounded-3xl border border-[#e4dcc8] bg-[#fffdf8] px-6 py-10 shadow sm:px-10 sm:py-14">
+      <section className="relative mb-10 overflow-hidden rounded-3xl border border-line bg-paper-card px-6 py-10 shadow-card sm:px-10 sm:py-14">
         <div
           className="pointer-events-none absolute -left-16 -top-16 h-56 w-56 rounded-full bg-teal-100/70 blur-2xl"
           aria-hidden="true"
@@ -42,7 +37,7 @@ export default function HomePage() {
           <h1 className="max-w-2xl text-[28px] font-extrabold leading-normal text-ink sm:text-[34px]">
             نکات کاربردی بیماری‌های شایع و اورژانس‌های اطفال
           </h1>
-          <p className="mt-3 max-w-xl text-[14.5px] leading-8 text-[#6b675c]">
+          <p className="mt-3 max-w-xl text-[14.5px] leading-8 text-ink-muted">
             نسخه وب کتاب PICU — تشخیص، خط درمانی، دوز داروی وزن‌محور و نسخه‌های
             نمونه، دسته‌بندی‌شده و قابل‌جستجو برای استفاده سریع بالینی.
           </p>
@@ -62,43 +57,31 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12.5px] text-ink-muted">
-            {stats.map(({ icon: Icon, value, label }) => (
-              <span key={label} className="flex items-center gap-1.5">
-                <Icon className="h-4 w-4 text-clay-600" />
-                <span className="font-mono tabular-nums text-ink">
-                  {value}
-                </span>{" "}
-                {label}
-              </span>
-            ))}
+            <span className="flex items-center gap-1.5">
+              <LuBookOpen className="h-4 w-4 text-clay-600" />
+              <span className="font-mono tabular-nums text-ink">
+                {topicCount}
+              </span>{" "}
+              سرفصل بالینی
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="font-mono tabular-nums text-ink">
+                {categories.length}
+              </span>{" "}
+              بخش تخصصی
+            </span>
           </div>
         </div>
       </section>
 
-      <div className="mb-5 flex items-end justify-between border-b border-line pb-3">
-        <div>
-          <h2 className="text-[15px] font-bold text-ink">فهرست مطالب</h2>
-          <p className="mt-0.5 text-[12px] text-ink-muted">
-            بر اساس بخش تخصصی — برای مشاهده سرفصل‌ها روی هر بخش کلیک کنید
-          </p>
-        </div>
-        <span className="hidden text-xs text-ink-muted sm:block">
-          {categories.length} بخش · {topicCount} سرفصل
-        </span>
+      <div className="mb-5 flex items-center justify-between">
+        <h2 className="text-[15px] font-bold text-ink">فهرست مطالب</h2>
+        <span className="text-xs text-ink-muted">بر اساس بخش تخصصی</span>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {categoriesWithTopics.map((cat, i) => (
-          <div
-            key={cat.slug}
-            className="animate-fade-in-up"
-            style={{
-              animationDelay: `${i * 40}ms`,
-              animationFillMode: "backwards",
-            }}
-          >
-            <CategoryTile category={cat} index={i} />
-          </div>
+          <CategoryTile key={cat.slug} category={cat} index={i} />
         ))}
       </div>
     </Layout>
