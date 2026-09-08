@@ -46,7 +46,6 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
             </span>
           </Link>
 
-          {/* خدا هست - دقیقاً وسط */}
           <div className="absolute left-1/2 -translate-x-1/2">
             <KhodaHast size="sm" animated={true} />
           </div>
