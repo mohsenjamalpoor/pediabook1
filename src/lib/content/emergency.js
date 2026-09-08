@@ -343,7 +343,7 @@ const topics = [
 14. Control I/O
 15. Foley fix
 16. CBC, CRP, Bun, Cr, Na, K, BS, Ca, P, Mg, AST, ALT, VBG
-17. آنتی‌بیوتیک در صورت عفونت
+17. آنتی‌بیوتیک در صورت شواهد عفونت،  WBCبالای۲۵۰۰۰ ویاDKA شدید
 `,
   },
   {
