@@ -2,14 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+
 import { LuMenu, LuX, LuStethoscope } from "react-icons/lu";
 import Sidebar from "./Sidebar";
-import {
-  getCategoriesWithTopics,
-  getSearchIndex,
-  categories,
-} from "@/lib/data";
+import { getCategoriesWithTopics } from "@/lib/data";
 import { useResetOnChange } from "@/core/utils/useResetOnChange";
 
 export default function Layout({ children, activeCategory, activeTopicSlug }) {
