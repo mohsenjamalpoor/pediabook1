@@ -50,11 +50,9 @@ export default function DkaCalculator() {
           <LuCalculator className="h-4.5 w-4.5" />
         </span>
         <div>
-          <h3 className="text-[15px] font-bold text-ink">
-            محاسبه‌ سرم و دریپ DKA
-          </h3>
+          <h3 className="text-[15px] font-bold text-ink">محاسبه‌ سرم DKA</h3>
           <p className="text-[11.5px] text-ink-muted">
-            بولوس، برنامه ۲۴ ساعته مایع و دریپ انسولین بر اساس وزن
+            بولوس، برنامه ۲۴ ساعته مایع درمانی بر اساس وزن
           </p>
         </div>
       </div>
