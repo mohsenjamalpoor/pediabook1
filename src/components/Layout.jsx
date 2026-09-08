@@ -7,6 +7,7 @@ import Sidebar from "./Sidebar";
 
 import { getCategoriesWithTopics } from "@/lib/data";
 import { useResetOnChange } from "@/core/utils/useResetOnChange";
+import KhodaHast from "./module/KhodaHast";
 
 export default function Layout({ children, activeCategory, activeTopicSlug }) {
   const pathname = usePathname();
@@ -18,7 +19,8 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6">
+        <div className="relative mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 sm:px-6">
+          {/* منوی موبایل */}
           <button
             onClick={() => setDrawerOpen(true)}
             className="rounded-lg p-2 text-ink-soft hover:bg-paper-soft lg:hidden"
@@ -27,19 +29,27 @@ export default function Layout({ children, activeCategory, activeTopicSlug }) {
             <LuMenu className="h-5 w-5" />
           </button>
 
+          {/* لوگو */}
           <Link href="/" className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-teal-800 text-paper-card shadow-tab">
               <LuStethoscope className="h-4.5 w-4.5" strokeWidth={1.8} />
             </span>
+
             <span className="hidden sm:block">
               <span className="block text-[13.5px] font-extrabold leading-4 text-ink">
                 کتاب کاربردی اطفال
               </span>
+
               <span className="block text-[11px] leading-4 text-ink-muted">
                 بیماری‌های شایع و اورژانس‌های کودکان
               </span>
             </span>
           </Link>
+
+          {/* خدا هست - دقیقاً وسط */}
+          <div className="absolute left-1/2 -translate-x-1/2">
+            <KhodaHast size="sm" animated={true} />
+          </div>
         </div>
       </header>
 
