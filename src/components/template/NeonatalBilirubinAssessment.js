@@ -183,7 +183,7 @@ export default function NeonatalBilirubinAssessment() {
           </h3>
 
           <p className="text-[11.5px] text-ink-muted">
-            AAP 2022 · سن حاملگی ≥ ۳۵ هفته
+            AAP 2025 · سن حاملگی ≥ ۳۵ هفته
           </p>
         </div>
       </div>
