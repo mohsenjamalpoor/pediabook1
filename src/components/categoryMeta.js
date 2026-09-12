@@ -120,3 +120,33 @@ export const COLOR_TOKENS = {
 export function colorTokens(color) {
   return COLOR_TOKENS[color] || COLOR_TOKENS.teal;
 }
+
+export const STATUS_TOKENS = {
+  brick: {
+    bg: "bg-brick-50",
+    border: "border-brick-200",
+    text: "text-brick-700",
+    dot: "bg-brick-600",
+  },
+
+  orange: {
+    bg: "bg-orange-50",
+    border: "border-orange-200",
+    text: "text-orange-800",
+    dot: "bg-orange-600",
+  },
+
+  clay: {
+    bg: "bg-clay-50",
+    border: "border-clay-200",
+    text: "text-clay-800",
+    dot: "bg-clay-600",
+  },
+
+  teal: {
+    bg: "bg-teal-50",
+    border: "border-teal-200",
+    text: "text-teal-800",
+    dot: "bg-teal-700",
+  },
+};

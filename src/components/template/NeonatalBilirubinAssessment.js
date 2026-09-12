@@ -14,9 +14,11 @@ import {
   getBilirubinThresholds,
   NEUROTOXICITY_RISK_FACTORS,
   BILIRUBIN_REFERENCE,
+  getStatus,
 } from "@/lib/bilirubinThresholds";
 
 import { formatDecimal1 } from "@/lib/formatDecimal1";
+import { STATUS_TOKENS } from "../categoryMeta";
 
 const GA_OPTIONS = [35, 36, 37, 38, 39, 40];
 
@@ -30,128 +32,6 @@ const GA_OPTIONS = [35, 36, 37, 38, 39, 40];
  * 4. near-phototherapy
  * 5. normal
  */
-function getStatus(tsb, thresholds) {
-  // 1. تعویض خون
-  if (tsb >= thresholds.exchange) {
-    return {
-      key: "exchange",
-      color: "brick",
-      title: "در آستانه تعویض خون",
-      message:
-        "TSB در حد یا بالاتر از آستانه تعویض خون است. ارزیابی فوری تیم نوزادان/NICU و آماده‌سازی تعویض خون الزامی است.",
-      actions: [
-        "تماس فوری با تیم نوزادان/NICU و ارزیابی بالینی نوزاد",
-        "ادامه فتوتراپی تشدیدی با حداکثر شدت (Irradiance ≥ 30 µW/cm²/nm) در تمام مدت",
-        "آماده‌سازی خون کراس‌مچ‌شده و شسته‌شده + FFP طبق پروتکل مرکز",
-        "هدف هماتوکریت پس از تعویض حدود ۴۰٪ (در صورت نیاز به تعویض دوبل)",
-        "کنترل TSB و بیلی‌روبین مستقیم بلافاصله قبل و بعد از تعویض",
-        "پایش علائم نوروتوکسیسیتی حاد (کاهش تونوس، گریه غیرطبیعی، لتارژی، تشنج)",
-        "در صورت افت TSB به زیر آستانه پیش از شروع تعویض: می‌توان با پایش TSB هر ۲ ساعت تعویض را به تعویق انداخت",
-      ],
-    };
-  }
-
-  // 2. تشدید مراقبت
-  if (tsb >= thresholds.escalation) {
-    return {
-      key: "escalation",
-      color: "orange",
-      title: "تشدید مراقبت (نزدیک آستانه تعویض خون)",
-      message:
-        "TSB در فاصله ۲ mg/dL زیر آستانه تعویض خون است. تشدید مراقبت، بستری در NICU و آماده‌سازی برای تعویض خون احتمالی لازم است.",
-      actions: [
-        "بستری در NICU و شروع فتوتراپی تشدیدی با حداکثر شدت",
-        "کنترل TSB هر ۲ ساعت تا تثبیت روند",
-        "مایع‌درمانی وریدی برای حفظ هیدراتاسیون و دفع بیلی‌روبین",
-        "بررسی علت زمینه‌ای: CBC، گروه خونی مادر/نوزاد، DAT، G6PD، آلبومین",
-        "آماده‌سازی کراس‌مچ خون برای تعویض احتمالی",
-        "بررسی وجود فاکتورهای خطر نوروتوکسیسیتی",
-      ],
-    };
-  }
-
-  // 3. فتوتراپی
-  if (tsb >= thresholds.phototherapy) {
-    return {
-      key: "phototherapy",
-      color: "clay",
-      title: "نیاز به فتوتراپی",
-      message:
-        "TSB در حد یا بالاتر از آستانه فتوتراپی است. شروع فتوتراپی استاندارد یا تشدیدی بر اساس شدت و علت زمینه‌ای.",
-      actions: [
-        "شروع فتوتراپی با شدت مناسب (استاندارد: ۸–۲۰، تشدیدی: ≥ ۳۰ µW/cm²/nm)",
-        "کنترل TSB ۴ تا ۶ ساعت پس از شروع فتوتراپی، سپس بر اساس روند",
-        "ادامه تغذیه با شیر مادر یا شیر خشک در طول فتوتراپی",
-        "پایش وزن، ادرار و وضعیت هیدراتاسیون",
-        "بررسی علت زمینه‌ای: CBC، رتیکولوسیت، گروه خونی، DAT، G6PD",
-        "در صورت همولیز یا G6PD، آستانه تعویض خون را جدی‌تر بگیرید",
-      ],
-    };
-  }
-
-  // 4. نزدیک آستانه فتوتراپی
-  if (tsb >= thresholds.phototherapy - 1) {
-    return {
-      key: "near-phototherapy",
-      color: "orange",
-      title: "نزدیک آستانه فتوتراپی",
-      message:
-        "TSB در فاصله ۱ mg/dL زیر آستانه فتوتراپی است. نیاز به پایش نزدیک و ارزیابی روند بیلی‌روبین دارد.",
-      actions: [
-        "پایش نزدیک TSB بر اساس وضعیت بالینی و روند افزایش",
-        "آماده‌سازی فتوتراپی در صورت افزایش TSB",
-        "ارزیابی علت زمینه‌ای و فاکتورهای خطر",
-        "اطمینان از تغذیه کافی و دفع مناسب",
-        "آموزش والدین درباره علائم خطر",
-      ],
-    };
-  }
-
-  // 5. زیر آستانه
-  return {
-    key: "normal",
-    color: "teal",
-    title: "زیر آستانه فتوتراپی",
-    message:
-      "TSB بیش از ۱ mg/dL زیر آستانه فتوتراپی است. در حال حاضر بر اساس این محاسبه نیازی به فتوتراپی نیست.",
-    actions: [
-      "پیگیری سرپایی طبق برنامه ترخیص/فالوآپ",
-      "کنترل TSB بر اساس روند، سن نوزاد و نظر پزشک",
-      "بررسی روند افزایش TSB و فاکتورهای خطر",
-      "آموزش والدین درباره علائم خطر و مراجعه فوری",
-    ],
-  };
-}
-
-const STATUS_TOKENS = {
-  brick: {
-    bg: "bg-brick-50",
-    border: "border-brick-200",
-    text: "text-brick-700",
-    dot: "bg-brick-600",
-  },
-
-  orange: {
-    bg: "bg-orange-50",
-    border: "border-orange-200",
-    text: "text-orange-800",
-    dot: "bg-orange-600",
-  },
-
-  clay: {
-    bg: "bg-clay-50",
-    border: "border-clay-200",
-    text: "text-clay-800",
-    dot: "bg-clay-600",
-  },
-
-  teal: {
-    bg: "bg-teal-50",
-    border: "border-teal-200",
-    text: "text-teal-800",
-    dot: "bg-teal-700",
-  },
-};
 
 export default function NeonatalBilirubinAssessment() {
   const [gestationalAge, setGestationalAge] = useState(38);
@@ -245,20 +125,6 @@ export default function NeonatalBilirubinAssessment() {
   const days = Math.floor(ageHours / 24);
 
   const hoursRemainder = Math.floor(ageHours % 24);
-
-  /**
-   * -----------------------------
-   * Handlers
-   * -----------------------------
-   *
-   * نکته مهم:
-   * در هیچ‌کدام از این handlerها
-   * setSubmitted(false)
-   * نداریم.
-   *
-   * بنابراین بعد از اولین ارزیابی،
-   * نتیجه بسته نمی‌شود.
-   */
 
   function handleGestationalAgeChange(ga) {
     setGestationalAge(ga);
