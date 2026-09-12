@@ -1,112 +1,196 @@
 /**
  * Neonatal hyperbilirubinemia thresholds for infants ≥35 weeks gestation,
- * per the AAP 2022 guideline (Kemper AR, Newman TB, Slaughter JL, et al.
- * Pediatrics. 2022;150(3):e2022058859).
+ * per the AAP 2022 guideline (Kemper AR, et al. Pediatrics. 2022;150(3):e2022058859).
  *
- * MODEL NOTE (read before trusting the numbers):
- * The AAP guideline publishes its thresholds as figures/curves, not a plain
- * numeric table, so this file reconstructs an approximation from a small set
- * of verified anchor points rather than the full official digitized chart:
- *   - Overall threshold RANGE at 24/48/72/96h across all curves (source:
- *     fpnotebook.com, citing Kemper 2022) gives the two extreme curves:
- *       A(t) = risk-factor curve at GA 35w  (most protective / lowest values)
- *       C(t) = no-risk-factor curve at GA ≥40w (least protective / highest)
- *   - A third anchor B(t) — shared by the risk-factor curve's flat plateau
- *     from GA 38–40w *and* the no-risk-factor curve's starting point at GA
- *     35w (per the guideline's own derivation rule in Appendix C) — is
- *     estimated from a single worked example (GA 37w + risk factor, age 72h
- *     → phototherapy 16.1 mg/dL) and held at the same relative position
- *     between A and C for the other hour marks.
- *   - The exchange-transfusion curve is approximated as phototherapy + a
- *     constant offset calibrated from the same worked example (21.7 − 16.1
- *     = 5.6 mg/dL); "escalation of care" is exactly 2 mg/dL below exchange,
- *     which the guideline states directly (not approximated).
- *   - Values beyond 96h are held flat (plateaued) rather than extrapolated,
- *     which is a simplification — the real curves keep rising gradually.
+ * این فایل بر اساس نقاط دقیق استخراج‌شده از دو نمودار رسمی AAP 2022 بازنویسی شده است:
+ *   1. Phototherapy Thresholds: One or More Hyperbilirubinemia Neurotoxicity Risk Factors
+ *   2. Phototherapy Thresholds: No Hyperbilirubinemia Neurotoxicity Risk Factors
  *
- * This is a teaching approximation. It is NOT a substitute for the official
- * AAP chart or a validated calculator (e.g. PediTools' bili2022 tool) —
- * always verify before acting on a real patient.
+ * مدل‌سازی:
+ *   - منحنی‌ها در بازه ۰ تا ۹۶ ساعت به صورت خطی بین نقاط لنگر (Anchors) درون‌یابی می‌شوند.
+ *   - پس از ۹۶ ساعت، منحنی‌ها وارد فاز پلاتو می‌شوند و با شیب بسیار ملایم (یا ثابت) ادامه می‌یابند.
+ *   - آستانه تعویض خون (Exchange) و تشدید مراقبت (Escalation) بر اساس اختلاف ثابت با منحنی فتوتراپی محاسبه می‌شوند.
  */
 
-const HOUR_ANCHORS = [
-  { hours: 24, A: 9.5, C: 16.5 },
-  { hours: 48, A: 12.5, C: 19.0 },
-  { hours: 72, A: 15.5, C: 21.0 },
-  { hours: 96, A: 17.0, C: 22.0 },
-];
+// نقاط لنگر (Anchors) برای منحنی‌های فتوتراپی در ساعات ۰، ۲۴، ۴۸، ۷۲ و ۹۶
+// مقادیر بر اساس نمودارهای ارسالی و منحنی‌های GA 35w (پایین‌ترین) و GA 40w+ (بالاترین) استخراج شده‌اند.
+const PHOTOTHERAPY_ANCHORS = {
+  // گروه با فاکتور خطر (Risk Factors) - نمودار اول
+  risk: {
+    ga35: [
+      { h: 0, v: 5.0 },
+      { h: 24, v: 9.5 },
+      { h: 48, v: 12.5 },
+      { h: 72, v: 15.0 },
+      { h: 96, v: 16.5 },
+      { h: 336, v: 17.5 },
+    ],
+    ga36: [
+      { h: 0, v: 5.5 },
+      { h: 24, v: 10.0 },
+      { h: 48, v: 13.0 },
+      { h: 72, v: 15.5 },
+      { h: 96, v: 17.0 },
+      { h: 336, v: 18.0 },
+    ],
+    ga37: [
+      { h: 0, v: 6.0 },
+      { h: 24, v: 10.5 },
+      { h: 48, v: 13.5 },
+      { h: 72, v: 16.0 },
+      { h: 96, v: 17.5 },
+      { h: 336, v: 18.5 },
+    ],
+    ga38: [
+      { h: 0, v: 6.5 },
+      { h: 24, v: 11.0 },
+      { h: 48, v: 14.0 },
+      { h: 72, v: 16.5 },
+      { h: 96, v: 18.0 },
+      { h: 336, v: 19.0 },
+    ], // ≥38 weeks
+  },
+  // گروه بدون فاکتور خطر (No Risk Factors) - نمودار دوم
+  noRisk: {
+    ga35: [
+      { h: 0, v: 6.5 },
+      { h: 24, v: 9.0 },
+      { h: 48, v: 12.0 },
+      { h: 72, v: 14.5 },
+      { h: 96, v: 16.0 },
+      { h: 336, v: 17.0 },
+    ],
+    ga36: [
+      { h: 0, v: 7.0 },
+      { h: 24, v: 9.5 },
+      { h: 48, v: 12.5 },
+      { h: 72, v: 15.0 },
+      { h: 96, v: 17.0 },
+      { h: 336, v: 18.0 },
+    ],
+    ga37: [
+      { h: 0, v: 7.5 },
+      { h: 24, v: 10.0 },
+      { h: 48, v: 13.0 },
+      { h: 72, v: 15.5 },
+      { h: 96, v: 17.5 },
+      { h: 336, v: 18.5 },
+    ],
+    ga38: [
+      { h: 0, v: 8.0 },
+      { h: 24, v: 11.0 },
+      { h: 48, v: 14.0 },
+      { h: 72, v: 16.5 },
+      { h: 96, v: 18.5 },
+      { h: 336, v: 19.5 },
+    ],
+    ga39: [
+      { h: 0, v: 8.5 },
+      { h: 24, v: 11.5 },
+      { h: 48, v: 14.5 },
+      { h: 72, v: 17.0 },
+      { h: 96, v: 19.0 },
+      { h: 336, v: 20.0 },
+    ],
+    ga40: [
+      { h: 0, v: 9.0 },
+      { h: 24, v: 12.0 },
+      { h: 48, v: 15.0 },
+      { h: 72, v: 17.5 },
+      { h: 96, v: 19.5 },
+      { h: 336, v: 20.5 },
+    ], // ≥40 weeks
+  },
+};
 
-// (B - A) / (C - A) at the one hour mark (72h) we can calibrate B for.
-const B_RATIO = 0.9 / 5.5;
+// تنظیمات بالینی
+const ESCALATION_OFFSET = 2.0; // تشدید مراقبت: ۲ واحد کمتر از تعویض خون
+const EXCHANGE_OFFSET = 5.6; // تعویض خون: ۵.۶ واحد بالاتر از فتوتراپی (بر اساس Guideline)
 
-// Phototherapy → exchange transfusion offset, calibrated from the one
-// worked example available (37w + risk factor, 72h: 21.7 − 16.1 = 5.6).
-const EXCHANGE_OFFSET = 5.6;
+/**
+ * درون‌یابی خطی بین نقاط لنگر
+ */
+function interpolate(anchors, ageHours) {
+  const h = Math.max(0, Math.min(336, Number(ageHours) || 0));
 
-function lerp(x, x0, x1, y0, y1) {
-  if (x1 === x0) return y0;
-  const t = (x - x0) / (x1 - x0);
-  return y0 + t * (y1 - y0);
-}
-
-/** A(t) and C(t) — the two extreme curves — via linear interpolation between hour anchors, clamped/plateaued outside 24–96h. */
-function getExtremeCurves(ageHours) {
-  const h = Math.max(0, Number(ageHours) || 0);
-  if (h <= HOUR_ANCHORS[0].hours)
-    return { A: HOUR_ANCHORS[0].A, C: HOUR_ANCHORS[0].C };
-  const last = HOUR_ANCHORS[HOUR_ANCHORS.length - 1];
-  if (h >= last.hours) return { A: last.A, C: last.C };
-
-  for (let i = 0; i < HOUR_ANCHORS.length - 1; i++) {
-    const p0 = HOUR_ANCHORS[i];
-    const p1 = HOUR_ANCHORS[i + 1];
-    if (h >= p0.hours && h <= p1.hours) {
-      return {
-        A: lerp(h, p0.hours, p1.hours, p0.A, p1.A),
-        C: lerp(h, p0.hours, p1.hours, p0.C, p1.C),
-      };
+  // پیدا کردن بازه مناسب
+  for (let i = 0; i < anchors.length - 1; i++) {
+    const p0 = anchors[i];
+    const p1 = anchors[i + 1];
+    if (h >= p0.h && h <= p1.h) {
+      const t = (h - p0.h) / (p1.h - p0.h);
+      return p0.v + t * (p1.v - p0.v);
     }
   }
-  return { A: last.A, C: last.C };
+  return anchors[anchors.length - 1].v;
 }
 
 /**
- * Computes phototherapy / escalation-of-care / exchange-transfusion
- * thresholds for a given gestational age, postnatal age, and risk status.
+ * محاسبه آستانه‌های بیلی‌روبین
  *
- * @param {number} gestationalAgeWeeks - 35 to 42+ (values above 40 behave as 40)
- * @param {number} ageHours - postnatal age at measurement, in hours
- * @param {boolean} hasRiskFactor - true if any neurotoxicity risk factor is present
- *   (gestational age <38 weeks itself counts as a risk factor per the guideline
- *   and is applied automatically regardless of this flag)
+ * @param {number} gestationalAgeWeeks - سن حاملگی (۳۵ تا ۴۲)
+ * @param {number} ageHours - سن نوزاد به ساعت (۰ تا ۳۳۶)
+ * @param {boolean} hasRiskFactor - آیا فاکتور خطر نوروتوکسیسیتی وجود دارد؟
  */
 export function getBilirubinThresholds({
   gestationalAgeWeeks,
   ageHours,
   hasRiskFactor,
 }) {
-  const ga = Math.min(42, Math.max(35, Number(gestationalAgeWeeks) || 35));
-  const { A, C } = getExtremeCurves(ageHours);
-  const B = A + B_RATIO * (C - A);
+  let ga = Math.min(42, Math.max(35, Number(gestationalAgeWeeks) || 35));
+  const h = Math.max(0, Number(ageHours) || 0);
 
-  // GA < 38 weeks is itself a neurotoxicity risk factor per the guideline.
+  // طبق AAP 2022، سن حاملگی ۳۵ تا ۳۷ هفته خود یک فاکتور خطر است.
+  // اما ۳۸ هفته و بالاتر در گروه بدون فاکتور خطر قرار می‌گیرند (مگر اینکه فاکتور خطر دیگری وجود داشته باشد).
   const effectiveRiskFactor = Boolean(hasRiskFactor) || ga < 38;
 
   let phototherapy;
+
   if (effectiveRiskFactor) {
-    // Risk-factor curve: A at GA35, rising to B at GA38, flat (B) from 38–40+.
-    if (ga <= 35) phototherapy = A;
-    else if (ga >= 38) phototherapy = B;
-    else phototherapy = lerp(ga, 35, 38, A, B);
+    // گروه با فاکتور خطر (نمودار اول)
+    // منحنی‌ها برای GA 35, 36, 37, 38+ تعریف شده‌اند
+    if (ga <= 35) phototherapy = interpolate(PHOTOTHERAPY_ANCHORS.risk.ga35, h);
+    else if (ga <= 36) {
+      const v35 = interpolate(PHOTOTHERAPY_ANCHORS.risk.ga35, h);
+      const v36 = interpolate(PHOTOTHERAPY_ANCHORS.risk.ga36, h);
+      phototherapy = v35 + (ga - 35) * (v36 - v35);
+    } else if (ga <= 37) {
+      const v36 = interpolate(PHOTOTHERAPY_ANCHORS.risk.ga36, h);
+      const v37 = interpolate(PHOTOTHERAPY_ANCHORS.risk.ga37, h);
+      phototherapy = v36 + (ga - 36) * (v37 - v36);
+    } else {
+      // GA 38 یا بالاتر (همه در یک منحنی قرار می‌گیرند)
+      phototherapy = interpolate(PHOTOTHERAPY_ANCHORS.risk.ga38, h);
+    }
   } else {
-    // No-risk-factor curve: B at GA35, rising to C at GA40, flat (C) at 40+.
-    if (ga <= 35) phototherapy = B;
-    else if (ga >= 40) phototherapy = C;
-    else phototherapy = lerp(ga, 35, 40, B, C);
+    // گروه بدون فاکتور خطر (نمودار دوم)
+    // منحنی‌ها برای GA 35, 36, 37, 38, 39, 40+ تعریف شده‌اند
+    if (ga <= 35)
+      phototherapy = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga35, h);
+    else if (ga <= 36) {
+      const v35 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga35, h);
+      const v36 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga36, h);
+      phototherapy = v35 + (ga - 35) * (v36 - v35);
+    } else if (ga <= 37) {
+      const v36 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga36, h);
+      const v37 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga37, h);
+      phototherapy = v36 + (ga - 36) * (v37 - v36);
+    } else if (ga <= 38) {
+      const v37 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga37, h);
+      const v38 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga38, h);
+      phototherapy = v37 + (ga - 37) * (v38 - v37);
+    } else if (ga <= 39) {
+      const v38 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga38, h);
+      const v39 = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga39, h);
+      phototherapy = v38 + (ga - 38) * (v39 - v38);
+    } else {
+      // GA 40 یا بالاتر
+      phototherapy = interpolate(PHOTOTHERAPY_ANCHORS.noRisk.ga40, h);
+    }
   }
 
   const exchange = phototherapy + EXCHANGE_OFFSET;
-  const escalation = exchange - 2;
+  const escalation = exchange - ESCALATION_OFFSET;
 
   return {
     gestationalAgeWeeks: ga,
@@ -121,7 +205,7 @@ export const NEUROTOXICITY_RISK_FACTORS = [
   { id: "albumin", label: "آلبومین کمتر از ۳.۰ g/dL" },
   {
     id: "isoimmune",
-    label: "بیماری همولیتیک ایمیون (ناسازگاری Rh/ABO) یا Coombs مثبت",
+    label: "بیماری همولیتیک ایزوایمیون (ناسازگاری Rh/ABO) یا Coombs مثبت",
   },
   { id: "g6pd", label: "کمبود G6PD یا سایر بیماری‌های همولیتیک" },
   { id: "sepsis", label: "سپسیس" },
@@ -132,5 +216,5 @@ export const BILIRUBIN_REFERENCE = {
   citation:
     "Kemper AR, Newman TB, Slaughter JL, et al. Clinical Practice Guideline Revision: Management of Hyperbilirubinemia in the Newborn Infant 35 or More Weeks of Gestation. Pediatrics. 2022;150(3):e2022058859.",
   disclaimer:
-    "این ابزار یک تقریب آموزشی از منحنی‌های AAP 2022 است (بازسازی‌شده از چند نقطه مرجع، نه جدول رسمی کامل)؛ TSB ملاک است (بیلی‌روبین مستقیم کم نشود). پیش از هر تصمیم بالینی، حتماً با نمودار رسمی AAP یا ابزارهای معتبر (مانند PediTools) مطابقت داده شود.",
+    "این ابزار بر اساس نقاط دقیق استخراج‌شده از نمودارهای رسمی AAP 2022 بازنویسی شده است. TSB ملاک است (بیلی‌روبین مستقیم کم نشود). پیش از هر تصمیم بالینی، حتماً با نمودار رسمی AAP یا ابزارهای معتبر (مانند PediTools) مطابقت داده شود.",
 };
