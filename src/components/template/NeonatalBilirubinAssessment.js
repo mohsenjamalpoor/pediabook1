@@ -1,15 +1,10 @@
 "use client";
 
+import { formatDecimal1 } from "@/lib/formatDecimal1";
 import { useState } from "react";
 import { LuDroplet } from "react-icons/lu";
 
 const GA_OPTIONS = [35, 36, 37, 38, 39, 40];
-function formatNumber1(number) {
-  return number.toLocaleString("en-US", {
-    minimumFractionDigits: 1,
-    maximumFractionDigits: 1,
-  });
-}
 
 function NeonatalBilirubinAssessment() {
   const [gestationalAge, setGestationalAge] = useState(38);
@@ -127,7 +122,7 @@ function NeonatalBilirubinAssessment() {
           </div>
         )}
         <p className="mt-1.5 text-[11px] text-ink-muted">
-          معادل: {days} روز و {hoursRemainder} ساعت ({formatNumber1(ageHours)}{" "}
+          معادل: {days} روز و {hoursRemainder} ساعت ({formatDecimal1(ageHours)}{" "}
           ساعت)
         </p>
       </div>
