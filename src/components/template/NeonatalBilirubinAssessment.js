@@ -17,6 +17,7 @@ function NeonatalBilirubinAssessment() {
   const [ageHoursInput, setAgeHoursInput] = useState(24);
   const [ageDaysInput, setAgeDaysInput] = useState(1);
   const [ageDaysHoursInput, setAgeDaysHoursInput] = useState(0);
+  const [tsb, setTsb] = useState(8);
 
   const ageHours =
     ageMode === "hours"
@@ -128,6 +129,33 @@ function NeonatalBilirubinAssessment() {
         <p className="mt-1.5 text-[11px] text-ink-muted">
           معادل: {days} روز و {hoursRemainder} ساعت ({formatNumber1(ageHours)}{" "}
           ساعت)
+        </p>
+      </div>
+      {/* TSB */}
+      <div className="mb-5">
+        <label
+          className="mb-2 block text-[12.5px] font-medium text-ink-soft"
+          htmlFor="bili-tsb"
+        >
+          بیلی‌روبین توتال سرم — TSB (mg/dL)
+        </label>
+        <input
+          id="bili-tsb"
+          type="number"
+          step="0.1"
+          min="0"
+          value={tsb}
+          onChange={(e) => setTsb(e.target.value)}
+          className="w-full max-w-40 rounded-lg border border-line bg-paper-card px-3 py-2 text-[16px] font-bold tnum text-teal-800 focus:outline-none"
+        />
+        <p className="mt-1.5 text-[11px] italic text-ink-muted">
+          از TSB استفاده کنید — بیلی‌روبین مستقیم/کنژوگه کم نشود.
+        </p>
+      </div>
+      {/* risk factors */}
+      <div className="mb-5 rounded-xl border border-line bg-paper-card p-4">
+        <p className="mb-3 text-[13px] font-bold text-ink">
+          فاکتورهای خطر نوروتوکسیسیتی
         </p>
       </div>
     </div>
