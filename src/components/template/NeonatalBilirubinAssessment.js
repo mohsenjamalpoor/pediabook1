@@ -1,8 +1,12 @@
 "use client";
 
+import {
+  getBilirubinThresholds,
+  NEUROTOXICITY_RISK_FACTORS,
+} from "@/lib/bilirubinThresholds";
 import { formatDecimal1 } from "@/lib/formatDecimal1";
-import { useState } from "react";
-import { LuDroplet } from "react-icons/lu";
+import { useMemo, useState } from "react";
+import { LuCircleCheck, LuDroplet, LuTriangleAlert } from "react-icons/lu";
 
 const GA_OPTIONS = [35, 36, 37, 38, 39, 40];
 
@@ -13,11 +17,24 @@ function NeonatalBilirubinAssessment() {
   const [ageDaysInput, setAgeDaysInput] = useState(1);
   const [ageDaysHoursInput, setAgeDaysHoursInput] = useState(0);
   const [tsb, setTsb] = useState(8);
+  const [riskFactors, setRiskFactors] = useState({});
 
   const ageHours =
     ageMode === "hours"
       ? Number(ageHoursInput) || 0
       : (Number(ageDaysInput) || 0) * 24 + (Number(ageDaysHoursInput) || 0);
+
+  const hasAnyRiskFactor = Object.values(riskFactors).some(Boolean);
+
+  const thresholds = useMemo(
+    () =>
+      getBilirubinThresholds({
+        gestationalAgeWeeks: gestationalAge,
+        ageHours,
+        hasRiskFactor: hasAnyRiskFactor,
+      }),
+    [gestationalAge, ageHours, hasAnyRiskFactor],
+  );
 
   const days = Math.floor(ageHours / 24);
   const hoursRemainder = Math.round(ageHours % 24);
@@ -152,6 +169,45 @@ function NeonatalBilirubinAssessment() {
         <p className="mb-3 text-[13px] font-bold text-ink">
           فاکتورهای خطر نوروتوکسیسیتی
         </p>
+        <div className="space-y-2.5">
+          {NEUROTOXICITY_RISK_FACTORS.map((rf) => (
+            <label
+              key={rf.id}
+              className="flex cursor-pointer items-start gap-2.5"
+            >
+              <input
+                type="checkbox"
+                checked={Boolean(riskFactors[rf.id])}
+                onChange={(e) =>
+                  setRiskFactors((prev) => ({
+                    ...prev,
+                    [rf.id]: e.target.checked,
+                  }))
+                }
+                className="mt-0.5 h-4 w-4 shrink-0 accent-teal-700"
+              />
+              <span className="text-[13px] leading-5 text-ink-soft">
+                {rf.label}
+              </span>
+            </label>
+          ))}
+        </div>
+        <div
+          className={`mt-3 flex items-center gap-2 rounded-lg border px-3 py-2 text-[12px] font-medium ${
+            thresholds.effectiveRiskFactor
+              ? "border-clay-200 bg-clay-50 text-clay-800"
+              : "border-teal-200 bg-teal-50 text-teal-800"
+          }`}
+        >
+          {thresholds.effectiveRiskFactor ? (
+            <LuTriangleAlert className="h-4 w-4 shrink-0" />
+          ) : (
+            <LuCircleCheck className="h-4 w-4 shrink-0" />
+          )}
+          {thresholds.effectiveRiskFactor
+            ? "استفاده از آستانه‌های ویژه فاکتور خطر (شامل سن حاملگی زیر ۳۸ هفته)"
+            : "استفاده از آستانه‌های استاندارد"}
+        </div>
       </div>
     </div>
   );
