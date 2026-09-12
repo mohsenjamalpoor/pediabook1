@@ -12,12 +12,13 @@ import {
   LuActivity,
   LuStethoscope,
 } from "react-icons/lu";
+import { RiLungsLine } from "react-icons/ri";
 
 export const ICONS = {
   ear: LuEar,
   thermometer: LuThermometer,
   stomach: LuSalad,
-  lungs: LuWind,
+  lungs: RiLungsLine,
   droplet: LuDroplets,
   skin: LuScan,
   kidney: LuFlaskConical,

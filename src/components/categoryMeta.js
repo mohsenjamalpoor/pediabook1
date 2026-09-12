@@ -1,11 +1,10 @@
+import { BsLungs } from "react-icons/bs";
+import { GiKidneys, GiStomach } from "react-icons/gi";
 import {
   LuEar,
   LuThermometer,
-  LuSalad,
-  LuWind,
   LuDroplets,
   LuScan,
-  LuFlaskConical,
   LuBaby,
   LuSkull,
   LuSiren,
@@ -15,11 +14,11 @@ import {
 export const ICONS = {
   ear: LuEar,
   thermometer: LuThermometer,
-  stomach: LuSalad,
-  lungs: LuWind,
+  stomach: GiStomach,
+  lungs: BsLungs,
   droplet: LuDroplets,
   skin: LuScan,
-  kidney: LuFlaskConical,
+  kidney: GiKidneys,
   baby: LuBaby,
   skull: LuSkull,
   siren: LuSiren,

@@ -14,6 +14,7 @@ import {
   getCategory,
   getAdjacentTopics,
 } from "@/lib/data";
+import NeonatalBilirubinAssessment from "@/components/template/NeonatalBilirubinAssessment";
 
 export async function generateStaticParams() {
   return getAllTopics().map((t) => ({ slug: t.slug }));
@@ -86,6 +87,11 @@ export default async function TopicPage({ params }) {
           <div className="mb-8 space-y-4">
             <DkaCalculator />
             <InsulinDripCalculator />
+          </div>
+        )}
+        {topic.slug === "neonatal-jaundice" && (
+          <div className="mb-8">
+            <NeonatalBilirubinAssessment />
           </div>
         )}
 
