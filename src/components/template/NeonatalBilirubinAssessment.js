@@ -6,7 +6,6 @@ import {
 } from "@/lib/bilirubinThresholds";
 import { formatDecimal1 } from "@/lib/formatDecimal1";
 import { useMemo, useState } from "react";
-import { IoAlertCircleOutline } from "react-icons/io5";
 import { LuCircleCheck, LuDroplet, LuTriangleAlert } from "react-icons/lu";
 
 const GA_OPTIONS = [35, 36, 37, 38, 39, 40];
@@ -167,9 +166,8 @@ function NeonatalBilirubinAssessment() {
       </div>
       {/* risk factors */}
       <div className="mb-5 rounded-xl border border-line bg-paper-card p-4">
-        <p className="mb-3 flex  items-center gap-2 text-[13px] font-bold text-ink">
-          <IoAlertCircleOutline className="h-4 w-4 shrink-0 text-clay-700" />
-          <span>فاکتورهای خطر نوروتوکسیسیتی</span>
+        <p className="mb-3 text-[13px] font-bold text-ink">
+          فاکتورهای خطر نوروتوکسیسیتی
         </p>
         <div className="space-y-2.5">
           {NEUROTOXICITY_RISK_FACTORS.map((rf) => (
