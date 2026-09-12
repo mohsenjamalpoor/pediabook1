@@ -130,10 +130,10 @@ export const STATUS_TOKENS = {
   },
 
   orange: {
-    bg: "bg-orange-50",
+    bg: "bg-orange-100",
     border: "border-orange-200",
-    text: "text-orange-800",
-    dot: "bg-orange-600",
+    text: "text-orange-600",
+    dot: "bg-orange-500",
   },
 
   clay: {
