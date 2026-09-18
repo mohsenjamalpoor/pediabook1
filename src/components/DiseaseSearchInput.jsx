@@ -9,7 +9,6 @@ import { colorTokens } from "./categoryMeta";
 const DEFAULT_SUGGESTIONS = [
   "کروپ",
   "آنافیلاکسی",
-  "DKA",
   "تشنج استاتوس",
   "آسم",
   "زردی نوزادی",
