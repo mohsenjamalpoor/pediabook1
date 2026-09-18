@@ -187,11 +187,11 @@ const topics = [
 
 ### آزمایش‌های اولیه
 
- CBC Diff,B/C, ESR, CRP, BUN, Cr, Na, K, BS, Ca, P, Mg, AST, ALT, VBG
+- CBC Diff,B/C, ESR, CRP, BUN, Cr, Na, K, BS, Ca, P, Mg, AST, ALT, VBG
 
- U/A – urine toxicology در صورت شک به مسمومیت
+- U/A – urine toxicology در صورت شک به مسمومیت
 
- سطح داروهای ضدتشنجی مصرفی قبلی
+- سطح داروهای ضدتشنجی مصرفی قبلی
 
  
 
