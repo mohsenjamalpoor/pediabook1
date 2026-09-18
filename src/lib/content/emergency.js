@@ -299,18 +299,18 @@ const topics = [
 
 ### جدول داروها
 
-| نام دارو | Dose | سرعت تزریق | Max | عوارض مهم | نکات مهم |
-|---|---|---|---|---|---|
-| **میدازولام** | <span dir="ltr">0.15–0.2 mg/kg</span> | IV/IO آهسته؛ IM یا IN بر اساس مسیر | <span dir="ltr">10 mg/dose</span> | دپرسیون تنفسی، آپنه، افت فشارخون، خواب‌آلودگی | از داروهای خط اول؛ در صورت ادامه تشنج طبق پروتکل قابل تکرار است. |
-| **دیازپام IV/IO** | <span dir="ltr">0.1–0.4 mg/kg</span> | IV آهسته، حدود <span dir="ltr">2 min</span> | <span dir="ltr">10 mg</span> | دپرسیون تنفسی، آپنه، افت فشارخون، خواب‌آلودگی | از داروهای خط اول؛ IM به‌دلیل جذب نامطمئن توصیه نمی‌شود. |
-| **دیازپام رکتال** | <span dir="ltr">0.3–0.5 mg/kg</span> | Rectal | <span dir="ltr">20 mg</span> | دپرسیون تنفسی، خواب‌آلودگی | در نبود دسترسی IV یا برای درمان خارج بیمارستانی قابل استفاده است. |
-| **لووتیراستام** | <span dir="ltr">40–60 mg/kg</span> | IV/IO طی حدود <span dir="ltr">5 min</span> | <span dir="ltr">4.5 g</span> | خواب‌آلودگی، تحریک‌پذیری | گزینه خط دوم؛ تداخل دارویی و عوارض همودینامیک کمتری دارد. |
-| **فنی‌توئین** | <span dir="ltr">20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> و حداکثر <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5–2 g</span> طبق پروتکل | آریتمی، افت فشارخون، دپرسیون تنفسی، آسیب بافتی در Extravasation | مانیتورینگ ECG و فشارخون الزامی؛ با محلول‌های حاوی گلوکز مخلوط نشود. |
-| **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | آهسته؛ حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | دپرسیون تنفسی، افت فشارخون، برادی‌کاردی، خواب‌آلودگی | همراه بنزودیازپین‌ها خطر دپرسیون تنفسی افزایش می‌یابد؛ مانیتورینگ قلبی لازم است. |
-| **سدیم والپروات** | <span dir="ltr">20–40 mg/kg</span> | طی <span dir="ltr">3–10 min</span> | <span dir="ltr">3 g</span> | هپاتوتوکسیسیته، پانکراتیت، اختلالات متابولیک | در بیماری کبدی یا شک به بیماری متابولیک با احتیاط/عدم استفاده؛ محدودیت‌های سنی و جنسیتی باید در پروتکل مرکز بررسی شود. |
-| **میدازولام Infusion** | طبق پروتکل PICU و پاسخ بیمار | Continuous IV infusion | طبق پروتکل PICU | دپرسیون تنفسی، آپنه، افت فشارخون، تجمع دارو | برای **Refractory Status Epilepticus** و با مانیتورینگ مداوم در PICU. |
-| **کتامین** | Loading و سپس infusion طبق پروتکل PICU | IV infusion | طبق پروتکل مرکز | افزایش فشارخون و ضربان قلب، افزایش ترشحات، واکنش‌های emergence | در Refractory/Super-refractory Status و با نظر متخصص PICU/نورولوژی. |
-| **تیوپنتال** | Loading و سپس infusion طبق پروتکل PICU | IV infusion | طبق پروتکل مرکز | افت فشارخون، دپرسیون قلبی و تنفسی، تجمع دارو | در Refractory/Super-refractory Status؛ معمولاً پس از تأمین راه هوایی و در PICU. |
+| نام دارو | Dose | سرعت تزریق | Max | عوارض و نکات مهم |
+|---|---|---|---|---|
+| **میدازولام** | <span dir="ltr">0.15–0.2 mg/kg</span> | <span dir="ltr">IV/IO</span> آهسته؛ <span dir="ltr">IM</span> یا <span dir="ltr">IN</span> بر اساس مسیر | <span dir="ltr">10 mg/dose</span> | **دپرسیون تنفسی و آپنه**؛ **افت فشارخون و خواب‌آلودگی**. از داروهای خط اول؛ در صورت ادامه تشنج طبق پروتکل قابل تکرار است. |
+| **دیازپام IV/IO** | <span dir="ltr">0.1–0.4 mg/kg</span> | <span dir="ltr">IV</span> آهسته، حدود <span dir="ltr">2 min</span> | <span dir="ltr">10 mg</span> | **دپرسیون تنفسی و آپنه**؛ **افت فشارخون و خواب‌آلودگی**. از داروهای خط اول؛ <span dir="ltr">IM</span> به‌دلیل جذب نامطمئن توصیه نمی‌شود. |
+| **دیازپام رکتال** | <span dir="ltr">0.3–0.5 mg/kg</span> | <span dir="ltr">Rectal</span> | <span dir="ltr">20 mg</span> | **دپرسیون تنفسی**؛ **خواب‌آلودگی**. در نبود دسترسی <span dir="ltr">IV</span> یا برای درمان خارج بیمارستانی قابل استفاده است. |
+| **لووتیراستام** | <span dir="ltr">40–60 mg/kg</span> | <span dir="ltr">IV/IO</span> طی حدود <span dir="ltr">5 min</span> | <span dir="ltr">4.5 g</span> | **خواب‌آلودگی**؛ **تحریک‌پذیری**. گزینه خط دوم؛ معمولاً تداخل دارویی و عوارض همودینامیک کمتری دارد. |
+| **فنی‌توئین** | <span dir="ltr">20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> و حداکثر <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5–2 g</span> طبق پروتکل | **آریتمی و افت فشارخون**؛ **آسیب بافتی در Extravasation**. مانیتورینگ <span dir="ltr">ECG</span> و فشارخون ضروری است؛ با محلول‌های حاوی گلوکز مخلوط نشود. |
+| **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | آهسته؛ حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | **دپرسیون تنفسی**؛ **افت فشارخون و برادی‌کاردی**. همراه بنزودیازپین‌ها خطر دپرسیون تنفسی افزایش می‌یابد؛ مانیتورینگ قلبی لازم است. |
+| **سدیم والپروات** | <span dir="ltr">20–40 mg/kg</span> | طی <span dir="ltr">3–10 min</span> | <span dir="ltr">3 g</span> | **هپاتوتوکسیسیته**؛ **پانکراتیت**. در بیماری کبدی یا شک به بیماری متابولیک با احتیاط/عدم استفاده؛ محدودیت‌های سنی باید در پروتکل مرکز بررسی شود. |
+| **میدازولام Infusion** | طبق پروتکل <span dir="ltr">PICU</span> و پاسخ بیمار | <span dir="ltr">Continuous IV infusion</span> | طبق پروتکل <span dir="ltr">PICU</span> | **دپرسیون تنفسی و افت فشارخون**؛ **تجمع دارو**. برای <span dir="ltr">Refractory Status Epilepticus</span> با مانیتورینگ مداوم در <span dir="ltr">PICU</span>. |
+| **کتامین** | Loading و سپس Infusion طبق پروتکل <span dir="ltr">PICU</span> | <span dir="ltr">IV infusion</span> | طبق پروتکل مرکز | **افزایش فشارخون و ضربان قلب**؛ **افزایش ترشحات**. در <span dir="ltr">Refractory/Super-refractory Status</span> با نظر متخصص <span dir="ltr">PICU/Neurology</span>. |
+| **تیوپنتال** | Loading و سپس Infusion طبق پروتکل <span dir="ltr">PICU</span> | <span dir="ltr">IV infusion</span> | طبق پروتکل مرکز | **دپرسیون قلبی‌تنفسی و افت فشارخون**؛ **سرکوب طولانی سیستم عصبی مرکزی**. برای <span dir="ltr">Refractory/Super-refractory Status</span> و نیازمند کنترل راه هوایی و مانیتورینگ مداوم است. | افت فشارخون، دپرسیون قلبی و تنفسی، تجمع دارو | در Refractory/Super-refractory Status؛ معمولاً پس از تأمین راه هوایی و در PICU. |
 
 > **نکته مهم:** در تشنج استاتوس، همزمان با درمان ضدتشنج باید ABC، اکسیژناسیون، قند خون، دسترسی وریدی/IO و مانیتورینگ قلبی و تنفسی انجام شود.
 
