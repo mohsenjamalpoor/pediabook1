@@ -6,10 +6,20 @@ import Fuse from "fuse.js";
 import { LuSearch, LuX, LuArrowLeft } from "react-icons/lu";
 import { colorTokens } from "./categoryMeta";
 
+const DEFAULT_SUGGESTIONS = [
+  "کروپ",
+  "آنافیلاکسی",
+  "DKA",
+  "تشنج استاتوس",
+  "آسم",
+  "زردی نوزادی",
+];
+
 /**
  * Always-visible search box for finding a disease/topic by name.
  * Unlike SearchOverlay (Ctrl/⌘K command palette), this sits inline in the
  * page and shows its result list right underneath the input as the person types.
+ * Styled to be the visual focal point of the page it's placed on.
  */
 export default function DiseaseSearchInput({
   searchIndex,
@@ -17,9 +27,11 @@ export default function DiseaseSearchInput({
   placeholder = "نام بیماری را وارد کنید… مثلاً کروپ، آسم، زردی نوزادی",
   autoFocus = false,
   maxResults = 8,
+  suggestions = DEFAULT_SUGGESTIONS,
   id,
 }) {
   const wrapRef = useRef(null);
+  const inputRef = useRef(null);
   const [query, setQuery] = useState("");
   const [focused, setFocused] = useState(false);
 
@@ -64,6 +76,12 @@ export default function DiseaseSearchInput({
     };
   }, []);
 
+  function pickSuggestion(term) {
+    setQuery(term);
+    setFocused(true);
+    inputRef.current?.focus();
+  }
+
   return (
     <div ref={wrapRef} className="relative w-full max-w-md">
       <div
@@ -74,6 +92,7 @@ export default function DiseaseSearchInput({
         <LuSearch className="h-4.5 w-4.5 shrink-0 text-teal-700" />
         <input
           id={id}
+          ref={inputRef}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setFocused(true)}
@@ -91,6 +110,23 @@ export default function DiseaseSearchInput({
           </button>
         )}
       </div>
+
+      {!showPanel && suggestions?.length > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-2">
+          <span className="text-[12px] font-medium text-ink-muted">
+            پیشنهاد سریع:
+          </span>
+          {suggestions.map((term) => (
+            <button
+              key={term}
+              onClick={() => pickSuggestion(term)}
+              className="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-[12px] font-semibold text-teal-800 transition hover:border-teal-400 hover:bg-teal-100"
+            >
+              {term}
+            </button>
+          ))}
+        </div>
+      )}
 
       {showPanel && (
         <div className="absolute inset-x-0 top-[calc(100%+8px)] z-30 max-h-96 overflow-y-auto rounded-2xl border border-line bg-paper-card p-2 shadow-2xl">
