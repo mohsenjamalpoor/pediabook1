@@ -290,9 +290,9 @@ const topics = [
 
 ### نسخه نمونه — کودک ۵ ساله، ۱۸ کیلوگرم، فارنژیت استرپتوکوکی
 
-- **Pcn Amp 6.3.3** — <span dir="ltr">N=1</span> — یک عدد عضلانی با تست حساسیت
-- **Acetaminophen Syrup** — <span dir="ltr">N=1</span> — <span dir="ltr">۹ سی‌سی هر ۴ ساعت</span>
-- **Diphenhydramine Syrup** — <span dir="ltr">N=1</span> — <span dir="ltr">۲.۵ سی‌سی هر ۸ ساعت</span>
+- **Amp Pcn 6.3.3** — <span dir="ltr">N=1</span> — یک عدد عضلانی با تست حساسیت
+- **Syrup Acetaminophen** — <span dir="ltr">N=1</span> — <span dir="ltr">۹ سی‌سی هر ۴ ساعت</span>
+- **Syrup Diphenhydramine** — <span dir="ltr">N=1</span> — <span dir="ltr">۲.۵ سی‌سی هر ۸ ساعت</span>
 
 ---
 
@@ -322,9 +322,9 @@ const topics = [
 
 ### نسخه نمونه — کودک ۳ ساله، ۱۴ کیلوگرم، فارنژیت ویروسی
 
-- **Diphenhydramine Syrup** — <span dir="ltr">N=1</span> — <span dir="ltr">۲.۵ سی‌سی هر ۸ ساعت</span>
-- **Acetaminophen Syrup** — <span dir="ltr">N=1</span> — <span dir="ltr">۷ سی‌سی هر ۴ ساعت</span> برای تب
-- **Nasal Drop NaCl 0.65%** — <span dir="ltr">N=1</span> — <span dir="ltr">۴–۵ قطره هر ۶ ساعت</span> برای رینوره/گرفتگی بینی
+- **Syrup Diphenhydramine** — <span dir="ltr">N=1</span> — <span dir="ltr">۲.۵ سی‌سی هر ۸ ساعت</span>
+- **Syrup Acetaminophen** — <span dir="ltr">N=1</span> — <span dir="ltr">۷ سی‌سی هر ۴ ساعت</span> برای تب
+- **Drop Nasal NaCl 0.65%** — <span dir="ltr">N=1</span> — <span dir="ltr">۴–۵ قطره هر ۶ ساعت</span> برای رینوره/گرفتگی بینی
 
 ---
 
