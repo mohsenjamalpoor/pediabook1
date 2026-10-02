@@ -731,8 +731,8 @@ const topics = [
 | **دیازپام رکتال** | <span dir="ltr">0.3–0.5 mg/kg</span> | <span dir="ltr">Rectal</span> | <span dir="ltr">20 mg</span> | **دپرسیون تنفسی**؛ **خواب‌آلودگی**. در نبود دسترسی <span dir="ltr">IV</span> یا برای درمان خارج بیمارستانی قابل استفاده است. |
 | **لووتیراستام** | <span dir="ltr">40–60 mg/kg</span> | <span dir="ltr">IV/IO</span> طی حدود <span dir="ltr">5 min</span> | <span dir="ltr">4.5 g</span> | **خواب‌آلودگی**؛ **تحریک‌پذیری**. گزینه خط دوم؛ معمولاً تداخل دارویی و عوارض همودینامیک کمتری دارد. |
 | **فنی‌توئین** | <span dir="ltr">20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> و حداکثر <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5–2 g</span> طبق پروتکل | **آریتمی و افت فشارخون**؛ **آسیب بافتی در Extravasation**. مانیتورینگ <span dir="ltr">ECG</span> و فشارخون ضروری است؛ با محلول‌های حاوی گلوکز مخلوط نشود. |
-| **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | آهسته؛ حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | **دپرسیون تنفسی**؛ **افت فشارخون و برادی‌کاردی**. همراه بنزودیازپین‌ها خطر دپرسیون تنفسی افزایش می‌یابد؛ مانیتورینگ قلبی لازم است. |
-| **سدیم والپروات** | <span dir="ltr">20–40 mg/kg</span> | طی <span dir="ltr">3–10 min</span> | <span dir="ltr">3 g</span> | **هپاتوتوکسیسیته**؛ در بیماری کبدی یا شک به بیماری متابولیک  وسن زیر دو سال مصرف نشود  . |
+| **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | آهسته؛ حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | **دپرسیون تنفسی** |
+| **سدیم والپروات** | <span dir="ltr">20 mg/kg</span> |  <span dir="ltr">5 min</span> | <span dir="ltr">3 g</span> | **هپاتوتوکسیسیته**؛ در بیماری کبدی یا شک به بیماری متابولیک  وسن زیر دو سال مصرف نشود  . |
 
  
 
