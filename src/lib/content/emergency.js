@@ -653,17 +653,9 @@ const topics = [
 
 ---
 
-### جدول داروهای ضدتشنج
 
-| نام دارو | مسیر و دوز | سرعت تزریق | Max | عوارض و نکات مهم |
-|---|---|---|---|---|
-| **میدازولام** | <span dir="ltr">IV/IO: 0.15 mg/kg</span><br><span dir="ltr">IM: 0.2 mg/kg</span><br><span dir="ltr">IN/Buccal: 0.3 mg/kg</span> | <span dir="ltr">IV/IO</span> آهسته<br><span dir="ltr">IM</span><br><span dir="ltr">IN/Buccal</span> | <span dir="ltr">10 mg/dose</span> | دپرسیون تنفسی و آپنه؛ در صورت ادامه تشنج طبق پروتکل قابل تکرار است. |
-| **دیازپام** | <span dir="ltr">IV/IO: 0.1–0.4 mg/kg</span><br><span dir="ltr">Rectal: 0.3–0.5 mg/kg</span> | <span dir="ltr">IV/IO</span> آهسته، حدود <span dir="ltr">2 min</span><br><span dir="ltr">Rectal</span> | <span dir="ltr">IV/IO: 10 mg</span><br><span dir="ltr">Rectal: 20 mg</span> | دپرسیون تنفسی و آپنه؛ افت فشارخون و خواب‌آلودگی. |
-| **لورازپام** | <span dir="ltr">IV: 0.05–0.1 mg/kg</span> | طی <span dir="ltr">2–5 min</span> | <span dir="ltr">4 mg/dose</span> | دپرسیون تنفسی، خواب‌آلودگی و افت فشارخون؛ فقط از مسیر IV استفاده شود. |
-| **لووتیراستام** | <span dir="ltr">IV/IO: 60 mg/kg</span> | طی حدود <span dir="ltr">5 min</span> | <span dir="ltr">4.5 g</span> | معمولاً تداخل دارویی و عوارض همودینامیک کمی دارد؛ خواب‌آلودگی و تحریک‌پذیری ممکن است رخ دهد. |
-| **فنی‌توئین** | <span dir="ltr">IV/IO: 20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> و حداکثر <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5 g</span> | آریتمی و افت فشارخون؛ مانیتورینگ ECG و BP ضروری است. در Extravasation خطر آسیب بافتی دارد. با محلول‌های حاوی گلوکز مخلوط نشود. |
-| **فنوباربیتال** | <span dir="ltr">IV/IO: 20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | دپرسیون تنفسی، افت فشارخون و برادی‌کاردی؛ همراه بنزودیازپین‌ها خطر دپرسیون تنفسی افزایش می‌یابد. |
-| **سدیم والپروات** | <span dir="ltr">IV/IO: 20–40 mg/kg</span> | طی <span dir="ltr">3–10 min</span> | <span dir="ltr">3 g</span> | هپاتوتوکسیسیته و پانکراتیت؛ در بیماری کبدی، سن پایین یا شک به بیماری متابولیک با احتیاط/طبق پروتکل مرکز استفاده شود. |
+
+
 
 ---
 
@@ -729,9 +721,9 @@ const topics = [
 | **میدازولام** | <span dir="ltr">0.15–0.2 mg/kg</span> | <span dir="ltr">IV/IO</span> آهسته؛ <span dir="ltr">IM</span> یا <span dir="ltr">IN</span> بر اساس مسیر | <span dir="ltr">10 mg/dose</span> | **دپرسیون تنفسی و آپنه**؛   شروع از چند ثانیه  تا یک دقیقه         . |
 | **دیازپام IV/IO** | <span dir="ltr">0.1–0.4 mg/kg</span> | <span dir="ltr">IV</span> آهسته، حدود <span dir="ltr">2 min</span> | <span dir="ltr">10 mg</span> | **دپرسیون تنفسی و آپنه**؛ **افت فشارخون و خواب‌آلودگی**. از داروهای خط اول؛ <span dir="ltr">IM</span> به‌دلیل جذب نامطمئن توصیه نمی‌شود. |
 | **دیازپام رکتال** | <span dir="ltr">0.3–0.5 mg/kg</span> | <span dir="ltr">Rectal</span> | <span dir="ltr">20 mg</span> | **دپرسیون تنفسی**؛ **خواب‌آلودگی**. در نبود دسترسی <span dir="ltr">IV</span> یا برای درمان خارج بیمارستانی قابل استفاده است. |
-| **لووتیراستام** | <span dir="ltr">40–60 mg/kg</span> | <span dir="ltr">IV/IO</span> طی حدود <span dir="ltr">5 min</span> | <span dir="ltr">4.5 g</span> | **خواب‌آلودگی**؛ **تحریک‌پذیری**. گزینه خط دوم؛ معمولاً تداخل دارویی و عوارض همودینامیک کمتری دارد. |
-| **فنی‌توئین** | <span dir="ltr">20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> و حداکثر <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5–2 g</span> طبق پروتکل | **آریتمی و افت فشارخون**؛ **آسیب بافتی در Extravasation**. مانیتورینگ <span dir="ltr">ECG</span> و فشارخون ضروری است؛ با محلول‌های حاوی گلوکز مخلوط نشود. |
-| **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | آهسته؛ حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | **دپرسیون تنفسی** |
+| **لووتیراستام** | <span dir="ltr">60 mg/kg</span> |  <span dir="ltr">10-15 min</span> | <span dir="ltr">4.5 g</span> | **خواب‌آلودگی**؛  معمولاً تداخل دارویی و عوارض همودینامیک کمتری دارد. |
+| **فنی‌توئین** | <span dir="ltr">20 mg/kg</span> |  <span dir="ltr">1 mg/kg/min</span> و **حداکثر** <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5 g</span> | **افت فشارخون، برادی‌کاردی و آریتمی**؛ **مانیتورینگ قلبی ضروری است**؛ با **سرم قندی** داده نشود. |
+| **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | <span dir="ltr">1 mg/kg/min</span>؛ **حداکثر <span dir="ltr">60 mg/kg/min</span>** | <span dir="ltr">1 g</span> | **دپرسیون تنفسی** |
 | **سدیم والپروات** | <span dir="ltr">20 mg/kg</span> |  <span dir="ltr">5 min</span> | <span dir="ltr">3 g</span> | **هپاتوتوکسیسیته**؛ در بیماری کبدی یا شک به بیماری متابولیک  وسن زیر دو سال مصرف نشود  . |
 
  
