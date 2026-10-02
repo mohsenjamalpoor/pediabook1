@@ -632,7 +632,7 @@ const topics = [
 
 ---
 
-#  اگر تشنج ≥ ۵ دقیقه ادامه داشت
+#  اگراز شروع تشنج ≥ ۵ دقیقه گذشته باشد 
 
 > **دارودرمانی را شروع کنید.**
 
@@ -740,9 +740,8 @@ const topics = [
 | **فنی‌توئین** | <span dir="ltr">20 mg/kg</span> | حداکثر <span dir="ltr">1 mg/kg/min</span> و حداکثر <span dir="ltr">50 mg/min</span> | <span dir="ltr">1.5–2 g</span> طبق پروتکل | **آریتمی و افت فشارخون**؛ **آسیب بافتی در Extravasation**. مانیتورینگ <span dir="ltr">ECG</span> و فشارخون ضروری است؛ با محلول‌های حاوی گلوکز مخلوط نشود. |
 | **فنوباربیتال** | <span dir="ltr">20 mg/kg</span> | آهسته؛ حداکثر <span dir="ltr">1 mg/kg/min</span> | <span dir="ltr">1 g</span> | **دپرسیون تنفسی**؛ **افت فشارخون و برادی‌کاردی**. همراه بنزودیازپین‌ها خطر دپرسیون تنفسی افزایش می‌یابد؛ مانیتورینگ قلبی لازم است. |
 | **سدیم والپروات** | <span dir="ltr">20–40 mg/kg</span> | طی <span dir="ltr">3–10 min</span> | <span dir="ltr">3 g</span> | **هپاتوتوکسیسیته**؛ **پانکراتیت**. در بیماری کبدی یا شک به بیماری متابولیک با احتیاط/عدم استفاده؛ محدودیت‌های سنی باید در پروتکل مرکز بررسی شود. |
-| **میدازولام Infusion** | طبق پروتکل <span dir="ltr">PICU</span> و پاسخ بیمار | <span dir="ltr">Continuous IV infusion</span> | طبق پروتکل <span dir="ltr">PICU</span> | **دپرسیون تنفسی و افت فشارخون**؛ **تجمع دارو**. برای <span dir="ltr">Refractory Status Epilepticus</span> با مانیتورینگ مداوم در <span dir="ltr">PICU</span>. |
-| **کتامین** | Loading و سپس Infusion طبق پروتکل <span dir="ltr">PICU</span> | <span dir="ltr">IV infusion</span> | طبق پروتکل مرکز | **افزایش فشارخون و ضربان قلب**؛ **افزایش ترشحات**. در <span dir="ltr">Refractory/Super-refractory Status</span> با نظر متخصص <span dir="ltr">PICU/Neurology</span>. |
-| **تیوپنتال** | Loading و سپس Infusion طبق پروتکل <span dir="ltr">PICU</span> | <span dir="ltr">IV infusion</span> | طبق پروتکل مرکز | **دپرسیون قلبی‌تنفسی و افت فشارخون**؛ **سرکوب طولانی سیستم عصبی مرکزی**. برای <span dir="ltr">Refractory/Super-refractory Status</span> و نیازمند کنترل راه هوایی و مانیتورینگ مداوم است. | افت فشارخون، دپرسیون قلبی و تنفسی، تجمع دارو | در Refractory/Super-refractory Status؛ معمولاً پس از تأمین راه هوایی و در PICU. |
+
+ 
 
 > **نکته مهم:** در تشنج استاتوس، همزمان با درمان ضدتشنج باید ABC، اکسیژناسیون، قند خون، دسترسی وریدی/IO و مانیتورینگ قلبی و تنفسی انجام شود.
 
