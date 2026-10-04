@@ -1311,18 +1311,18 @@ const topics = [
 > آزمایش‌های تکمیلی بر اساس شرح‌حال، معاینه و علت احتمالی تشنج درخواست شوند؛ از جمله سطح داروهای ضدتشنج، عملکرد کلیه و کبد، بررسی مسمومیت و سایر بررسی‌های متابولیک.
 
 ---
-
-> **اگر از شروع تشنج ≥ ۵ دقیقه گذشته باشد**
->
-> **دارودرمانی را شروع کنید.**
+## <span class="text-red-600 font-bold">اگر از شروع تشنج ≥ ۵ دقیقه گذشته باشد</span>
 
 
+<span class="text-red-600 font-bold">دارودرمانی را شروع کنید</span>.
 
-##  مرحله اول — Benzodiazepines
 
-##  مرحله دوم — Second-line Antiseizure Medication
 
-##  مرحله سوم —  انتقال /بستری درPICU/ داروهای بیهوشی/Continuous Infusion 
+##  مرحله اول ← Benzodiazepines
+
+##  مرحله دوم ← Second-line Antiseizure Medication
+
+##  مرحله سوم ←  انتقال /بستری درPICU/ داروهای بیهوشی/Continuous Infusion 
 
 ---
 > <span class="text-brick-700 font-bold">
