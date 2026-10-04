@@ -80,7 +80,7 @@ const topics = [
   - تعداد و الگوی تنفس
   - بررسی آپنه، برادی‌پنه یا تنفس غیرطبیعی
   - بررسی علائم هیپوکسی
-  - در صورت نیاز O₂ و حمایت تنفسی
+  - بررسی نیاز به اینتوباسیون
 
   **C — Circulation**
 
@@ -90,14 +90,14 @@ const topics = [
   - Peripheral perfusion
   - ECG/Cardiac monitoring
   - گرفتن IV access؛ در صورت عدم موفقیت سریع → IO access
+  - در صورت شواهد شوک بررسی سریع و خاص
 
   **D — Disability**
 
-  - **Bedside blood glucose فوری**
-  - سطح هوشیاری
-  - Pupils
+  - بررسی مردمک(مسمویت با اپیوئید/ افزایشICP)
+  -  بررسی قند
   - بررسی تشنج
-  - بررسی focal neurologic deficit
+  
 
   **E — Exposure**
 
