@@ -651,19 +651,7 @@ const topics = [
   - Suspected meningitis/encephalitis
   - Severe toxic ingestion
 
-  ---
 
-  # نکته کلیدی
-
-  در کودک با کاهش سطح هوشیاری، ترتیب ذهنی مناسب:
-
-  **ABC → Glucose → Oxygenation/Perfusion → Seizure → Toxin → Infection → Metabolic → Structural CNS**
-
-  و نباید صرفاً با مشاهده «کاهش هوشیاری» آن را به **post-ictal state** نسبت داد؛ اگر سطح هوشیاری طبق انتظار برنگردد، **NCSE، CNS infection، metabolic/toxic causes و structural lesion** باید مجدداً بررسی شوند.
-
-  ### Reference
-
-  بر اساس رویکردهای **UpToDate** به ارزیابی Altered Mental Status در کودک و ارزیابی/تشخیص encephalitis و status epilepticus، با تطبیق دوزها و اقدامات با پروتکل بیمارستانی و وضعیت بالینی بیمار.
   `,
   },
   //   {
