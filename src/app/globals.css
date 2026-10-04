@@ -1,21 +1,28 @@
 @import "tailwindcss";
 
+/* ------------------------------------------------------------------ */
+/* Root */
+/* ------------------------------------------------------------------ */
+
 :root {
   color-scheme: light;
 }
+
 html {
   scroll-behavior: smooth;
 }
 
+/* ------------------------------------------------------------------ */
+/* Tailwind Theme */
+/* ------------------------------------------------------------------ */
+
 @theme {
-  /* fonts (CSS vars set on <html> by next/font in app/layout.js —
-     next/font exposes them as --font-vazir / --font-mono-src to avoid
-     colliding with Tailwind's own theme token names below) */
+  /* fonts */
   --font-display: var(--font-vazir), Tahoma, sans-serif;
   --font-body: var(--font-vazir), Tahoma, sans-serif;
   --font-mono: var(--font-mono-src), ui-monospace, monospace;
 
-  /* paper / ink — warm "chart paper" neutrals */
+  /* paper / ink */
   --color-paper: #faf7ef;
   --color-paper-soft: #f3efe3;
   --color-paper-card: #fffdf8;
@@ -27,8 +34,7 @@ html {
   --color-line: #e4dcc8;
   --color-line-soft: #eee8d9;
 
-  /* teal — primary clinical accent (only overrides these shades;   */
-  /* undefined shades like teal-300/400 fall back to Tailwind's own) */
+  /* teal */
   --color-teal-950: #052a26;
   --color-teal-900: #0a3b34;
   --color-teal-800: #0f6e63;
@@ -39,7 +45,7 @@ html {
   --color-teal-100: #dff4ee;
   --color-teal-50: #f0faf7;
 
-  /* clay — "prescription pad" dosage/note accent */
+  /* clay */
   --color-clay-900: #5c3a16;
   --color-clay-800: #7a4b1c;
   --color-clay-700: #96591f;
@@ -49,7 +55,7 @@ html {
   --color-clay-100: #f7e9d2;
   --color-clay-50: #fbf3e6;
 
-  /* brick — emergency / red-flag accent */
+  /* brick */
   --color-brick-900: #4a1712;
   --color-brick-700: #7c2b22;
   --color-brick-600: #a23b2e;
@@ -61,8 +67,13 @@ html {
   /* shadows */
   --shadow-card:
     0 1px 2px rgba(22, 35, 31, 0.04), 0 8px 24px -12px rgba(22, 35, 31, 0.15);
+
   --shadow-tab: 0 2px 8px -2px rgba(22, 35, 31, 0.18);
 }
+
+/* ------------------------------------------------------------------ */
+/* Reduced Motion */
+/* ------------------------------------------------------------------ */
 
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -73,21 +84,36 @@ html {
   }
 }
 
+/* ------------------------------------------------------------------ */
+/* Body */
+/* ------------------------------------------------------------------ */
+
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
+
   background-image: radial-gradient(
     circle at 1px 1px,
     rgba(22, 35, 31, 0.06) 1px,
     transparent 0
   );
+
   background-size: 18px 18px;
 }
+
+/* ------------------------------------------------------------------ */
+/* Selection */
+/* ------------------------------------------------------------------ */
+
 ::selection {
   background-color: #bfe9e0;
   color: #052a26;
 }
+
+/* ------------------------------------------------------------------ */
+/* Focus */
+/* ------------------------------------------------------------------ */
 
 a:focus-visible,
 button:focus-visible,
@@ -98,99 +124,255 @@ input:focus-visible,
   border-radius: 4px;
 }
 
+/* ------------------------------------------------------------------ */
+/* Numbers */
+/* ------------------------------------------------------------------ */
+
 .tnum {
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
 }
 
-/* index-tab style scrollbar for the sidebar */
+/* ------------------------------------------------------------------ */
+/* Sidebar scrollbar */
+/* ------------------------------------------------------------------ */
+
 .chart-scroll::-webkit-scrollbar {
   width: 6px;
 }
+
 .chart-scroll::-webkit-scrollbar-thumb {
   background: #dccfa8;
   border-radius: 999px;
 }
+
 .chart-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+/* ------------------------------------------------------------------ */
+/* Clinical Markdown Content */
+/* ------------------------------------------------------------------ */
 
-/* ------------------------------------------------------------------ */
-/* Clinical markdown content (topic body)                             */
-/* ------------------------------------------------------------------ */
+/* H2 */
 
 .clinic-content h2 {
   @apply mt-10 mb-4 flex items-center gap-3 text-xl font-bold text-ink;
 }
+
 .clinic-content h2::before {
   content: "";
+
   @apply block h-5 w-1.5 rounded-full bg-clay-600;
 }
+
+/* H3 */
+
 .clinic-content h3 {
   @apply mt-8 mb-3 text-base font-bold text-teal-800;
 }
+
+/* Paragraph */
+
 .clinic-content p {
   @apply my-3 leading-8 text-ink-soft;
 }
+
+/* ------------------------------------------------------------------ */
+/* Lists */
+/* ------------------------------------------------------------------ */
+
 .clinic-content ul {
   @apply my-3 space-y-2;
 }
+
 .clinic-content ul > li {
   @apply relative pr-5 leading-7 text-ink-soft;
 }
+
 .clinic-content ul > li::before {
   content: "";
+
   @apply absolute right-0 top-2.5 h-1.5 w-1.5 rounded-full bg-clay-500;
 }
+
 .clinic-content ol {
   @apply my-3 mr-5 list-decimal space-y-2 leading-7 text-ink-soft;
 }
+
+/* ------------------------------------------------------------------ */
+/* Strong */
+/* ------------------------------------------------------------------ */
+
 .clinic-content strong {
   @apply font-bold text-ink;
 }
+
+/* ------------------------------------------------------------------ */
+/* Horizontal Rule */
+/* ------------------------------------------------------------------ */
+
 .clinic-content hr {
   @apply my-10 border-t border-dashed border-line;
 }
+
+/* ------------------------------------------------------------------ */
+/* Links */
+/* ------------------------------------------------------------------ */
+
 .clinic-content a {
   @apply text-teal-700 underline decoration-teal-500/40 underline-offset-2;
 }
 
+/* ================================================================== */
+/* Clinical Markdown Tables */
+/* ================================================================== */
+
 .clinic-content table {
-  @apply my-5 w-full border-collapse overflow-hidden rounded-xl border border-line text-sm;
+  @apply my-5 w-full border-collapse rounded-xl border border-line;
+
+  table-layout: fixed;
+  overflow: hidden;
 }
+
+/* Header */
+
 .clinic-content thead {
   background-color: var(--color-teal-800);
   color: var(--color-paper-card);
 }
+
+/* Header cells */
+
 .clinic-content th {
-  @apply px-3 py-2.5 text-right text-xs font-bold;
+  @apply px-2 py-2 text-right text-xs font-bold;
+
+  border-bottom: 1px solid var(--color-line);
+
+  line-height: 1.6;
 }
+
+/* Body cells */
+
 .clinic-content td {
-  @apply border-t border-line-soft px-3 py-2.5 align-top text-ink-soft;
+  @apply border-t border-line-soft px-2 py-2 align-top text-ink-soft;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
+
+/* ------------------------------------------------------------------ */
+/* Numbers / Units inside table */
+/* ------------------------------------------------------------------ */
+
+.clinic-content td span[dir="ltr"],
+.clinic-content th span[dir="ltr"] {
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ */
+/* Alternating rows */
+/* ------------------------------------------------------------------ */
+
 .clinic-content tbody tr:nth-child(even) {
   background-color: rgba(243, 239, 227, 0.6);
 }
 
+/* ------------------------------------------------------------------ */
+/* Important / highlighted drug */
+/* ------------------------------------------------------------------ */
+
+/* اگر در Markdown از text-green-600 استفاده شود */
+
+.clinic-content .text-green-600 {
+  color: #16a34a;
+}
+
+.clinic-content .text-green-700 {
+  color: #15803d;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mobile Table */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 640px) {
+  .clinic-content table {
+    width: 100%;
+    table-layout: fixed;
+
+    font-size: 12px;
+  }
+
+  .clinic-content th {
+    padding: 6px 4px;
+
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .clinic-content td {
+    padding: 6px 4px;
+
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  /* نام دارو خواناتر */
+
+  .clinic-content td:first-child {
+    font-size: 12px;
+    font-weight: 700;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Very Small Mobile */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 400px) {
+  .clinic-content th {
+    padding: 5px 3px;
+
+    font-size: 10px;
+  }
+
+  .clinic-content td {
+    padding: 5px 3px;
+
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .clinic-content td:first-child {
+    font-size: 11px;
+  }
+}
+
+/* ================================================================== */
+/* Blockquote */
+/* ================================================================== */
+
 .clinic-content blockquote {
   @apply relative my-6 rounded-xl border border-clay-200 bg-clay-50 px-5 py-4 pr-12 text-[0.95rem] leading-7 text-clay-900;
 }
+
 .clinic-content blockquote::before {
   content: "℞";
+
   @apply absolute right-4 top-3.5 text-lg font-bold text-clay-600;
 }
+
 .clinic-content blockquote p {
   @apply my-0 text-clay-900;
 }
+
+/* ================================================================== */
+/* Inline Code */
+/* ================================================================== */
 
 .clinic-content code {
   @apply rounded bg-teal-50 px-1.5 py-0.5 font-mono text-[0.85em] text-teal-800;
