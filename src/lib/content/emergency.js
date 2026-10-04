@@ -111,82 +111,45 @@ const topics = [
   - بررسی شواهد مسمومیت
 
   ---
+ ## 1. متابولیک
 
-  ## 2. قند خون — اولین تست
+- **BS ↓** — هیپوگلیسمی
+- **Na ↓** — هیپوناترمی
+- **Na ↑** — هایپرناترمی
+- **DKA** — کتواسیدوز دیابتی
+- **Ca ↓** — هیپوکلسمی
+- **نارسایی کبدی**
+- **نارسایی کلیوی**
+- **اختلالات مادرزادی**
+  
+  ---
+  ## 2. توکسین ها
 
-  **BS/POC glucose باید در هر کودک با کاهش سطح هوشیاری، تشنج یا altered mental status فوراً بررسی شود.**
+  - اپیوئید
+  - بنزودیازپین ها
+  - TCA
+  - الکل
+  -  سایر دارو ها
 
-  ### اگر هیپوگلیسمی وجود دارد:
-
-  - درمان فوری با IV dextrose
-  - در صورت عدم دسترسی وریدی → IO
-  - قند خون پس از درمان مجدداً بررسی شود.
-
-
-
-  در صورت هیپوگلیسمی بدون علت مشخص، در صورت امکان قبل از درمان یا همزمان با آن **critical sample** گرفته شود:
-
-  - Serum glucose
-  - Insulin
-  - C-peptide
-  - Beta-hydroxybutyrate
-  - Cortisol
-  - Growth hormone
-  - Lactate
-  - Ammonia
-  - Free fatty acids
-  - Toxicology در صورت شک به مسمومیت
+  ---
+  ## 3. عفونت 
+  - سپسیس / مننژیت / آنسفالیت
 
   ---
 
-  ## 3. اگر مسمومیت مطرح است
+ ## 4. هیپوکسیک ـ ایسکمیک
 
-  شرح‌حال از والدین درباره:
+- دارزدگی
+- غرق‌شدگی
+- ایست قلبی
+- شوک
+- آنافیلاکسی
+- نارسایی تنفسی
 
-  - داروهای منزل
-  - Opioids
-  - Sedatives
-  - Antiepileptic drugs
-  - Antidepressants
-  - Acetaminophen
-  - Salicylates
-  - Alcohol
-  - Clonidine
-  - Insulin
-  - Sulfonylureas
-  - مواد شیمیایی
 
-  ### بررسی:
+---
 
-  - ECG
-  - Glucose
-  - Electrolytes
-  - Blood gas
-  - Acetaminophen level
-  - Salicylate level
-  - Ethanol level در صورت شک
-  - Urine toxicology در صورت نیاز
-  - Drug-specific level در صورت وجود اندیکاسیون
-
-  ### Opioid toxicity
-
-  اگر کاهش هوشیاری همراه با:
-
-  - Respiratory depression
-  - Pinpoint pupils
-  - سابقه یا احتمال opioid exposure
-
-  باشد:
-
-  **Naloxone + حمایت راه هوایی و تنفسی**
-
-  را در نظر بگیرید.
-
-  **Naloxone نباید به‌صورت روتین در تمام کودکان با AMS تجویز شود؛ وجود شک بالینی به opioid toxicity مهم است.**
-
-  ---
-
-  ## 4. علل مهم کاهش سطح هوشیاری
+  ##  علل مهم کاهش سطح هوشیاری
 
   ### نورولوژیک / CNS
 
@@ -204,22 +167,7 @@ const topics = [
   - Increased intracranial pressure
   - Venous sinus thrombosis
 
-  ### متابولیک
 
-  - Hypoglycemia
-  - Hyperglycemia
-  - Hyponatremia
-  - Hypernatremia
-  - Hypocalcemia
-  - Hypercalcemia
-  - Hypomagnesemia
-  - Hypermagnesemia
-  - Metabolic acidosis
-  - Hypercapnia
-  - Hypoxemia
-  - Hyperammonemia
-  - Uremia
-  - Hepatic encephalopathy
 
   ### عفونی
 
