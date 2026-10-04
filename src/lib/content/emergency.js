@@ -679,9 +679,13 @@ const topics = [
 
 ### دارو های ضد تشنج
 
+ 1. <span class="text-green-600 font-bold">Levetiracetam</span>
 
+ 2. **Phenytoin**
 
- <span class="text-green-600 font-bold">Levetiracetam</span>/**Phenytoin**/**Phenobarbital**/**Sodium Valproate**
+ 3. **Phenobarbital**
+
+ 4. **Sodium Valproate**
 
 > **نکته:** در حال حاضر بین داروهای خط دوم فوق، در بسیاری از گایدلاین‌ها یک دارو به‌عنوان برنده مطلق و قطعی تعیین نشده است و انتخاب دارو به سن کودک، علت احتمالی تشنج، داروهای مصرفی قبلی، بیماری زمینه‌ای و عوارض مورد انتظار بستگی دارد.
 
