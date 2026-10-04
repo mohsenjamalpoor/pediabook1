@@ -110,8 +110,44 @@ const topics = [
   - محل تزریق یا patch دارویی (needle)
   - بررسی شواهد مسمومیت
 
+  
   ---
- ## 1. متابولیک
+ ## معاینه نورولوژیک
+
+- **GCS**
+  - Eye
+  - Verbal
+  - Motor
+
+- **علائم افزایش ICP**
+  - سردرد
+  - استفراغ
+  - تغییر سطح هوشیاری
+  - پاپیلدم
+  - برادی‌کاردی + HTN + تغییر الگوی تنفس
+
+- **مردمک‌ها**
+  - سایز
+  - واکنش به نور
+  - تقارن / اختلاف اندازه (Anisocoria)
+
+- **معاینه Motor**
+  - تون عضلانی
+  - قدرت حرکتی
+  - تقارن حرکات
+  - پاسخ به درد
+  - رفلکس‌ها
+
+- **Brain Stem**
+  - رفلکس مردمکی به نور
+  - رفلکس قرنیه
+  - حرکات چشم
+  - Gag reflex
+  - Cough reflex
+  ---
+  ## علل Diffuse کاهش هوشیاری
+
+## 1. متابولیک
 
 - **BS ↓** — هیپوگلیسمی
 - **Na ↓** — هیپوناترمی
@@ -121,207 +157,46 @@ const topics = [
 - **نارسایی کبدی**
 - **نارسایی کلیوی**
 - **اختلالات مادرزادی**
-  
-  ---
-  ## 2. توکسین ها
-
-  - اپیوئید
-  - بنزودیازپین ها
-  - TCA
-  - الکل
-  -  سایر دارو ها
-
-  ---
-  ## 3. عفونت 
-  - سپسیس / مننژیت / آنسفالیت
-
-  ---
-
- ## 4. هیپوکسیک ـ ایسکمیک
-
-- دارزدگی
-- غرق‌شدگی
-- ایست قلبی
-- شوک
-- آنافیلاکسی
-- نارسایی تنفسی
-
 
 ---
 
-  ##  علل مهم کاهش سطح هوشیاری
+## 2. توکسین‌ها
 
-  ### نورولوژیک / CNS
+- **اپیوئیدها**
+- **بنزودیازپین‌ها**
+- **TCA** — ضدافسردگی‌های سه‌حلقه‌ای
+- **الکل**
+- **سایر داروها و سموم**
 
-  - Seizure
-  - Post-ictal state
-  - Non-convulsive status epilepticus
-  - Meningitis
-  - Encephalitis
-  - Intracranial hemorrhage
-  - Traumatic brain injury
-  - Stroke
-  - Brain tumor
-  - Hydrocephalus
-  - Cerebral edema
-  - Increased intracranial pressure
-  - Venous sinus thrombosis
+---
 
+## 3. عفونت
 
+- **سپسیس**
+- **مننژیت**
+- **آنسفالیت**
 
-  ### عفونی
+---
 
-  - Sepsis
-  - Meningitis
-  - Encephalitis
-  - Severe systemic infection
+## 4. هیپوکسیک ـ ایسکمیک
 
-  ### توکسیک
+- **برق‌گرفتگی**
+- **غرق‌شدگی**
+- **ایست قلبی**
+- **شوک**
+- **آنافیلاکسی**
+- **نارسایی تنفسی**
 
-  - Opioids
-  - Sedatives
-  - Antiepileptic drugs
-  - Antidepressants
-  - Acetaminophen
-  - Salicylates
-  - Ethanol
-  - Carbon monoxide
-  - سایر مواد و داروها
+---
 
-  ---
+## 5. اندوکرین
 
-  ## 5. شرح‌حال هدفمند
+- **نارسایی آدرنال**
+- **اختلالات تیروئیدی شدید**
+- **اختلالات شدید قند خون**
 
-  از والدین یا همراهان:
+---
 
-  ### Time course
-
-  - شروع ناگهانی یا تدریجی؟
-  - زمان دقیق آخرین حالت طبیعی؟
-  - روند بدتر شدن یا بهبود؟
-
-  ### علائم همراه
-
-  - تب
-  - سردرد
-  - استفراغ
-  - اسهال
-  - درد شکم
-  - علائم تنفسی
-  - سرفه
-  - تشنج
-  - حرکات غیرطبیعی
-  - gaze deviation
-  - ضعف اندام
-  - اختلال تکلم
-  - اختلال راه رفتن
-  - تغییر رفتار
-
-  ### تشنج
-
-  - حرکات تونیک یا کلونیک؟
-  - gaze deviation؟
-  - مدت تشنج؟
-  - post-ictal state؟
-  - سابقه تشنج؟
-  - داروی ضدتشنج؟
-  - آخرین دوز دارو؟
-  - احتمال عدم مصرف دارو؟
-
-  ### Trauma
-
-  - سقوط
-  - ضربه به سر
-  - تصادف
-  - احتمال Non-accidental trauma
-
-  ### دارو و مسمومیت
-
-  - داروهای مصرفی کودک
-  - داروهای موجود در منزل
-  - احتمال ingestion
-  - داروی جدید
-  - تغییر دوز دارو
-
-  ### سابقه پزشکی
-
-  - بیماری متابولیک
-  - بیماری کبدی
-  - بیماری کلیوی
-  - صرع
-  - VP shunt
-  - بیماری CNS
-  - بیماری زمینه‌ای
-  - نقص ایمنی
-
-  ### تغذیه و متابولیک
-
-  - کاهش دریافت غذایی
-  - fasting
-  - استفراغ طولانی
-  - کاهش وزن
-  - dehydration
-  - اپیزودهای قبلی مشابه
-
-  ### سابقه خانوادگی
-
-  - بیماری‌های متابولیک
-  - مرگ ناگهانی
-  - تشنج
-  - بیماری‌های ارثی
-
-  ---
-
-  ## 6. معاینه فیزیکی
-
-  ### Neurologic examination
-
-  - Level of consciousness
-  - GCS
-  - Pupils
-  - Pupil reactivity
-  - Eye movements
-  - Gaze deviation
-  - Motor examination
-  - Tone
-  - DTR
-  - Plantar response
-  - Focal neurologic deficit
-  - Seizure activity
-
-  ### علائم افزایش ICP
-
-  - کاهش پیشرونده هوشیاری
-  - استفراغ
-  - سردرد
-  - Papilledema
-  - Focal neurologic deficit
-  - Abnormal pupillary response
-  - Cushing response در موارد شدید
-
-  ### علائم مننژیت/انسفالیت
-
-  - Fever
-  - Neck stiffness
-  - Photophobia
-  - Seizure
-  - Behavioral change
-  - Focal neurologic deficit
-
-  ### بررسی سیستمیک
-
-  - HR
-  - BP
-  - CRT
-  - Temperature
-  - SpO₂
-  - Respiratory pattern
-  - Skin rash
-  - Petechiae/purpura
-  - Signs of dehydration
-  - Signs of trauma
-
-  ---
 
   ## آزمایشات 
 
@@ -338,208 +213,39 @@ const topics = [
   - سطح سرمی الکل
   - LP
 
-  ---
 
 
-  ## 9. تصویربرداری مغز
 
-  ### Brain CT
-
-  CT مغز در مواردی مانند:
-
-  - Trauma
-  - شک به intracranial hemorrhage
-  - focal neurologic deficit
-  - علائم افزایش ICP
-  - کاهش پیشرونده هوشیاری
-  - شک به mass lesion
-  - Hydrocephalus
-  - شرایطی که MRI فوری در دسترس نیست
-
-  کاربرد دارد.
-
-  ### MRI Brain
-
-  در صورت ثبات بیمار و شک به:
-
-  - Encephalitis
-  - Stroke
-  - Demyelinating disease
-  - Tumor
-  - Venous thrombosis
-  - سایر ضایعات ساختاری
-
-  MRI حساسیت بیشتری برای بسیاری از ضایعات CNS دارد.
-
-  ---
-
-  ## 10. Lumbar Puncture
-
-  در صورت شک به:
-
-  - Meningitis
-  - Encephalitis
-  - CNS infection
-
-  → LP در صورت ایمن بودن انجام شود.
-
-  ### CSF studies
-
-  - Opening pressure در صورت امکان
-  - Cell count + differential
-  - Protein
-  - Glucose
-  - Gram stain
-  - Bacterial culture
-  - PCR بر اساس شک بالینی
-  - HSV PCR در صورت شک به encephalitis
-  - سایر تست‌ها بر اساس اپیدمیولوژی و وضعیت بیمار
-
-  ### مهم
-
-  **LP نباید در بیماری که ناپایدار است یا contraindication برای LP دارد انجام شود.**
-
-  در صورت شک جدی به meningitis/encephalitis:
-
-  **Antibiotic ± Acyclovir نباید به دلیل انتظار برای LP یا CT به تأخیر بیفتد.**
-
-  ---
-
-  ## 11. چه زمانی قبل از LP تصویربرداری لازم است؟
-
-  در صورت وجود شواهدی مانند:
-
-  - Focal neurologic deficit
-  - Signs of increased ICP
-  - Papilledema
-  - Significant alteration in consciousness
-  - New focal seizure
-  - Known CNS lesion
-  - Immunocompromised state
-  - سایر مواردی که احتمال mass effect مطرح است
-
-  ابتدا stabilization و ارزیابی مناسب انجام شود.
-
-  **تصمیم برای CT قبل از LP باید بر اساس معاینه و احتمال افزایش ICP/mass effect باشد، نه اینکه CT به‌صورت روتین پیش‌نیاز تمام LPها باشد.**
-
-  ---
-
-  ## 12. EEG
-
-  **EEG در کودک با AMS بدون علت مشخص اهمیت زیادی دارد، به‌خصوص اگر:**
-
-  - تشنج مشاهده شده باشد
-  - سابقه epilepsy وجود داشته باشد
-  - حرکات غیرطبیعی وجود داشته باشد
-  - gaze deviation وجود داشته باشد
-  - سطح هوشیاری بعد از تشنج به‌طور غیرمنتظره‌ای برنگردد
-  - شک به Non-convulsive status epilepticus وجود داشته باشد
-
-  در شک جدی به **NCSE**، EEG باید سریع انجام شود.
-
-  ---
-
-  # اوردر پیشنهادی در کودک با کاهش سطح هوشیاری با علت نامشخص
-
-  ## Monitoring
-
-  1. Continuous cardiopulmonary monitoring
-  2. Continuous pulse oximetry
-  3. Frequent vital signs
-  4. Neurologic assessment / GCS
-  5. Strict I/O
-  6. Temperature monitoring
-
-  ## Immediate
-
-  7. **POC Blood glucose STAT**
-  8. IV access؛ در صورت عدم دسترسی سریع → IO
-  9. Oxygen if hypoxemia/respiratory compromise
-  10. ECG
-  11. NPO until airway protection and swallowing are assessed
-
-  ## Laboratory
-
-  12. CBC + Diff
-  13. Na, K, Cl, HCO₃
-  14. BUN, Cr
-  15. Glucose
-  16. Ca, Mg, P
-  17. AST, ALT, Bilirubin
-  18. Blood gas
-  19. Lactate when clinically indicated
-  20. CRP ± Blood culture if infection suspected
-  21. Ammonia when clinically indicated
-  22. Urinalysis
-  23. Urine toxicology when indicated
-
-  ## Toxicology when indicated
-
-  24. Acetaminophen level
-  25. Salicylate level
-  26. Ethanol level
-  27. Specific drug levels according to exposure
-  28. ECG
-
-  ## Neurologic evaluation
-
-  29. Brain CT when indicated
-  30. Brain MRI when indicated and patient is stable
-  31. EEG if seizure/NCSE is suspected
-  32. Neurology consultation when indicated
-
-  ## Infection / CNS infection
-
-  33. Blood culture before antibiotics when feasible and when this does not delay treatment
-  34. LP if clinically indicated and safe
-  35. CSF cell count + differential
-  36. CSF glucose
-  37. CSF protein
-  38. Gram stain + culture
-  39. CSF PCR according to clinical suspicion
-
-  ---
-
-  # در صورت شک به مننگیت / مننگوانسفالیت
-
-  ### پس از گرفتن Blood culture در صورت امکان:
-
-  **Empiric antimicrobial therapy باید سریع شروع شود و نباید منتظر LP یا CT بماند اگر این اقدامات باعث تأخیر درمان شوند.**
-
-  ### گزینه‌های رایج
-
-  **Ceftriaxone**
-
-  50 mg/kg/dose IV q12h
-
-  یا طبق پروتکل مرکز:
-
-  100 mg/kg/day IV
-
-  **یا**
-
-  **Cefotaxime**
-
-  50 mg/kg/dose IV q6h
-
-  +
-
-  **Vancomycin**
-
-  15 mg/kg/dose IV q6h
-
-  با پایش سطح/Exposure طبق پروتکل مرکز.
-
-  ### اگر Encephalitis مطرح است:
-
-  **Acyclovir**
-
-  20 mg/kg/dose IV q8h
-
-  با تنظیم دوز بر اساس سن، عملکرد کلیه و پروتکل مرکز.
-
- 
-
+  
+---
+## اوردر در کاهش هوشیاری با علت نامشخص
+
+   1. Check BS stat then q6hr
+   2. Brain CT scan without contrast
+   3. LP (در صورت شک به مننگوانسفالیت، پس از استیبل‌شدن و CT مغز)
+   4. EEG
+   5. مشاوره نورولوژی
+   6. تشک مواج و تغییر پوزیشن
+   7. Cardiopulmonary monitoring and pulse oximetry
+   8. ECG
+   9. CXR
+   10. VBG stat then TDS
+   11. O2 therapy
+   12. NPO
+   13. Amp Pantoprazole 1mg/kg BD IV
+   14. Serum Maintenance
+   15. T chart + Apotel (10mg/kg q4hr) if fever
+   16. Foley fix
+   17. Chart I/O
+   18. CBC, Diff, ESR, CRP, Bun, Cr, Na, K, BS, Ca, P, Mg, AST, ALT, VBG
+   19. U/A – urine toxicology
+
+   ### در صورت شک به مننگوانسفالیت
+
+   20. Amp Cefotaxime 50mg/kg/dose q6hr IV یا Amp Ceftriaxone 50mg/kg/dose BD IV
+   21. Amp Vancomycin 15mg/kg/dose q6hr IV slow
+   22. Amp Acyclovir 15mg/kg IV q8hr slow
+   
 
   `,
   },
