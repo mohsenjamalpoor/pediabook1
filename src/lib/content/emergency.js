@@ -58,9 +58,7 @@ const topics = [
 
   در کودک **P یا U**، همزمان با ارزیابی نورولوژیک، **Airway، Breathing، Circulation و Blood Glucose** فوراً بررسی و در صورت نیاز اصلاح شوند.
 
-  ### ترتیب ارزیابی
-
-  **AVPU → GCS → Pupils → Motor response → Focal neurologic signs → بررسی علت**
+  
 
   ---
 
