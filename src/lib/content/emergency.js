@@ -379,29 +379,11 @@ const topics = [
 
   بر اساس وضعیت بالینی:
 
-  - CBC + Diff
-  - Blood glucose
-  - Na
-  - K
-  - Cl
-  - HCO₃
-  - Ca
-  - Mg
-  - Phosphorus
-  - BUN
-  - Creatinine
-  - AST
-  - ALT
-  - Bilirubin
-  - Albumin
-  - Blood gas
+  - CBC Diff  / ESR / CRP / B/C / Na / K / Ca / Albumin / Mg / Phosphorus / BUN / Creatinine / VBG / AST / 
+  ALT / PT / PTT / INR 
+  ### آزمایشات خاص
+
   - Lactate
-  - CRP در صورت شک به عفونت
-  - Blood culture در صورت شک به sepsis/CNS infection
-  - Urinalysis
-
-  ### در موارد انتخابی:
-
   - Ammonia
   - Serum ketones / Beta-hydroxybutyrate
   - Toxicology
