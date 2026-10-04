@@ -1,4 +1,671 @@
 const topics = [
+  //    {
+  //     slug: "altered-consciousness",
+  //     title: "اپروچ به کاهش سطح هوشیاری",
+  //     category: "emergency",
+  //     tags: [
+  //       "کاهش سطح هوشیاری",
+  //       "Altered mental status",
+  //       "کما",
+  //       "انسفالیت",
+  //       "مننژیت",
+  //       "تشنج",
+  //       "اورژانس",
+  //     ],
+
+  //     summary:
+  //       "رویکرد سیستماتیک به کودک با کاهش سطح هوشیاری؛ شامل ABC، علل برگشت‌پذیر، علل نورولوژیک، متابولیک، عفونی و توکسیک، بررسی‌های آزمایشگاهی، تصویربرداری، LP و EEG و اقدامات اولیه درمانی.",
+
+  //     content: `
+
+  // ## کاهش سطح هوشیاری — Altered Mental Status
+
+  // **کاهش سطح هوشیاری در کودک یک اورژانس پزشکی است و ابتدا باید همزمان با ارزیابی علت، وضعیت Airway، Breathing و Circulation بررسی و اصلاح شود.**
+
+  // علل مهم شامل:
+
+  // - هیپوگلیسمی و سایر اختلالات متابولیک
+  // - هیپوکسی و هیپرکاپنی
+  // - شوک و هیپوپرفیوژن
+  // - تشنج و **Non-convulsive status epilepticus**
+  // - مسمومیت و مصرف دارو
+  // - مننژیت و انسفالیت
+  // - تروما و خونریزی داخل جمجمه
+  // - افزایش فشار داخل جمجمه
+  // - هیدروسفالی
+  // - Stroke
+  // - اختلالات کبدی و اورمیک
+  // - اختلالات الکترولیتی
+  // - اختلالات متابولیک ارثی
+
+  // ---
+  // ---
+
+  // ## ارزیابی سریع سطح هوشیاری — AVPU
+
+  // در اولین برخورد با کودک، سطح هوشیاری به‌صورت سریع با **AVPU** ارزیابی شود:
+
+  // | وضعیت | تعریف |
+  // |---|---|
+  // | **A — Alert** | کودک بیدار و هوشیار است و به‌طور مناسب با محیط تعامل دارد. |
+  // | **V — Voice** | کودک به‌صورت خودبه‌خودی هوشیار نیست، اما با صدا زدن یا تحریک کلامی پاسخ می‌دهد. |
+  // | **P — Pain** | به صدا پاسخ نمی‌دهد، اما به تحریک دردناک پاسخ حرکتی یا واکنش مناسب نشان می‌دهد. |
+  // | **U — Unresponsive** | به صدا و تحریک دردناک هیچ پاسخی نمی‌دهد. |
+
+  // ### نکته مهم
+
+  // **AVPU یک ارزیابی سریع اولیه است و در صورت غیرطبیعی بودن یا کاهش سطح هوشیاری، ارزیابی کامل نورولوژیک و GCS انجام شود.**
+
+  // در کودک **P یا U**، همزمان با ارزیابی نورولوژیک، **Airway، Breathing، Circulation و Blood Glucose** فوراً بررسی و در صورت نیاز اصلاح شوند.
+
+  // ### ترتیب ارزیابی
+
+  // **AVPU → GCS → Pupils → Motor response → Focal neurologic signs → بررسی علت**
+
+  // ---
+
+  // ## 1. اقدامات فوری — اولین دقایق
+
+  // ### ABCDE
+
+  // **A — Airway**
+
+  // - بررسی باز بودن راه هوایی
+  // - ساکشن در صورت نیاز
+  // - قرار دادن در وضعیت مناسب
+  // - در کاهش شدید سطح هوشیاری یا عدم توانایی در محافظت از راه هوایی → آماده‌سازی برای Airway definitive
+
+  // **B — Breathing**
+
+  // - SpO₂
+  // - تعداد و الگوی تنفس
+  // - بررسی آپنه، برادی‌پنه یا تنفس غیرطبیعی
+  // - بررسی علائم هیپوکسی
+  // - در صورت نیاز O₂ و حمایت تنفسی
+
+  // **C — Circulation**
+
+  // - HR
+  // - BP
+  // - CRT
+  // - Peripheral perfusion
+  // - ECG/Cardiac monitoring
+  // - گرفتن IV access؛ در صورت عدم موفقیت سریع → IO access
+
+  // **D — Disability**
+
+  // - **Bedside blood glucose فوری**
+  // - سطح هوشیاری
+  // - Pupils
+  // - بررسی تشنج
+  // - بررسی focal neurologic deficit
+
+  // **E — Exposure**
+
+  // - Temperature
+  // - بررسی شواهد تروما
+  // - راش، petechiae/purpura
+  // - علائم عفونت
+  // - محل تزریق یا patch دارویی
+  // - بررسی شواهد مسمومیت
+
+  // ---
+
+  // ## 2. قند خون — اولین تست
+
+  // **BS/POC glucose باید در هر کودک با کاهش سطح هوشیاری، تشنج یا altered mental status فوراً بررسی شود.**
+
+  // ### اگر هیپوگلیسمی وجود دارد:
+
+  // - درمان فوری با IV dextrose
+  // - در صورت عدم دسترسی وریدی → IO
+  // - قند خون پس از درمان مجدداً بررسی شود.
+
+  // **در کودک با AMS نباید منتظر نتیجه آزمایش‌های دیگر برای اصلاح هیپوگلیسمی ماند.**
+
+  // در صورت هیپوگلیسمی بدون علت مشخص، در صورت امکان قبل از درمان یا همزمان با آن **critical sample** گرفته شود:
+
+  // - Serum glucose
+  // - Insulin
+  // - C-peptide
+  // - Beta-hydroxybutyrate
+  // - Cortisol
+  // - Growth hormone
+  // - Lactate
+  // - Ammonia
+  // - Free fatty acids
+  // - Toxicology در صورت شک به مسمومیت
+
+  // ---
+
+  // ## 3. اگر مسمومیت مطرح است
+
+  // شرح‌حال از والدین درباره:
+
+  // - داروهای منزل
+  // - Opioids
+  // - Sedatives
+  // - Antiepileptic drugs
+  // - Antidepressants
+  // - Acetaminophen
+  // - Salicylates
+  // - Alcohol
+  // - Clonidine
+  // - Insulin
+  // - Sulfonylureas
+  // - مواد شیمیایی
+
+  // ### بررسی:
+
+  // - ECG
+  // - Glucose
+  // - Electrolytes
+  // - Blood gas
+  // - Acetaminophen level
+  // - Salicylate level
+  // - Ethanol level در صورت شک
+  // - Urine toxicology در صورت نیاز
+  // - Drug-specific level در صورت وجود اندیکاسیون
+
+  // ### Opioid toxicity
+
+  // اگر کاهش هوشیاری همراه با:
+
+  // - Respiratory depression
+  // - Pinpoint pupils
+  // - سابقه یا احتمال opioid exposure
+
+  // باشد:
+
+  // **Naloxone + حمایت راه هوایی و تنفسی**
+
+  // را در نظر بگیرید.
+
+  // **Naloxone نباید به‌صورت روتین در تمام کودکان با AMS تجویز شود؛ وجود شک بالینی به opioid toxicity مهم است.**
+
+  // ---
+
+  // ## 4. علل مهم کاهش سطح هوشیاری
+
+  // ### نورولوژیک / CNS
+
+  // - Seizure
+  // - Post-ictal state
+  // - Non-convulsive status epilepticus
+  // - Meningitis
+  // - Encephalitis
+  // - Intracranial hemorrhage
+  // - Traumatic brain injury
+  // - Stroke
+  // - Brain tumor
+  // - Hydrocephalus
+  // - Cerebral edema
+  // - Increased intracranial pressure
+  // - Venous sinus thrombosis
+
+  // ### متابولیک
+
+  // - Hypoglycemia
+  // - Hyperglycemia
+  // - Hyponatremia
+  // - Hypernatremia
+  // - Hypocalcemia
+  // - Hypercalcemia
+  // - Hypomagnesemia
+  // - Hypermagnesemia
+  // - Metabolic acidosis
+  // - Hypercapnia
+  // - Hypoxemia
+  // - Hyperammonemia
+  // - Uremia
+  // - Hepatic encephalopathy
+
+  // ### عفونی
+
+  // - Sepsis
+  // - Meningitis
+  // - Encephalitis
+  // - Severe systemic infection
+
+  // ### توکسیک
+
+  // - Opioids
+  // - Sedatives
+  // - Antiepileptic drugs
+  // - Antidepressants
+  // - Acetaminophen
+  // - Salicylates
+  // - Ethanol
+  // - Carbon monoxide
+  // - سایر مواد و داروها
+
+  // ---
+
+  // ## 5. شرح‌حال هدفمند
+
+  // از والدین یا همراهان:
+
+  // ### Time course
+
+  // - شروع ناگهانی یا تدریجی؟
+  // - زمان دقیق آخرین حالت طبیعی؟
+  // - روند بدتر شدن یا بهبود؟
+
+  // ### علائم همراه
+
+  // - تب
+  // - سردرد
+  // - استفراغ
+  // - اسهال
+  // - درد شکم
+  // - علائم تنفسی
+  // - سرفه
+  // - تشنج
+  // - حرکات غیرطبیعی
+  // - gaze deviation
+  // - ضعف اندام
+  // - اختلال تکلم
+  // - اختلال راه رفتن
+  // - تغییر رفتار
+
+  // ### تشنج
+
+  // - حرکات تونیک یا کلونیک؟
+  // - gaze deviation؟
+  // - مدت تشنج؟
+  // - post-ictal state؟
+  // - سابقه تشنج؟
+  // - داروی ضدتشنج؟
+  // - آخرین دوز دارو؟
+  // - احتمال عدم مصرف دارو؟
+
+  // ### Trauma
+
+  // - سقوط
+  // - ضربه به سر
+  // - تصادف
+  // - احتمال Non-accidental trauma
+
+  // ### دارو و مسمومیت
+
+  // - داروهای مصرفی کودک
+  // - داروهای موجود در منزل
+  // - احتمال ingestion
+  // - داروی جدید
+  // - تغییر دوز دارو
+
+  // ### سابقه پزشکی
+
+  // - بیماری متابولیک
+  // - بیماری کبدی
+  // - بیماری کلیوی
+  // - صرع
+  // - VP shunt
+  // - بیماری CNS
+  // - بیماری زمینه‌ای
+  // - نقص ایمنی
+
+  // ### تغذیه و متابولیک
+
+  // - کاهش دریافت غذایی
+  // - fasting
+  // - استفراغ طولانی
+  // - کاهش وزن
+  // - dehydration
+  // - اپیزودهای قبلی مشابه
+
+  // ### سابقه خانوادگی
+
+  // - بیماری‌های متابولیک
+  // - مرگ ناگهانی
+  // - تشنج
+  // - بیماری‌های ارثی
+
+  // ---
+
+  // ## 6. معاینه فیزیکی
+
+  // ### Neurologic examination
+
+  // - Level of consciousness
+  // - GCS
+  // - Pupils
+  // - Pupil reactivity
+  // - Eye movements
+  // - Gaze deviation
+  // - Motor examination
+  // - Tone
+  // - DTR
+  // - Plantar response
+  // - Focal neurologic deficit
+  // - Seizure activity
+
+  // ### علائم افزایش ICP
+
+  // - کاهش پیشرونده هوشیاری
+  // - استفراغ
+  // - سردرد
+  // - Papilledema
+  // - Focal neurologic deficit
+  // - Abnormal pupillary response
+  // - Cushing response در موارد شدید
+
+  // ### علائم مننژیت/انسفالیت
+
+  // - Fever
+  // - Neck stiffness
+  // - Photophobia
+  // - Seizure
+  // - Behavioral change
+  // - Focal neurologic deficit
+
+  // ### بررسی سیستمیک
+
+  // - HR
+  // - BP
+  // - CRT
+  // - Temperature
+  // - SpO₂
+  // - Respiratory pattern
+  // - Skin rash
+  // - Petechiae/purpura
+  // - Signs of dehydration
+  // - Signs of trauma
+
+  // ---
+
+  // ## 7. آزمایش‌های اولیه
+
+  // بر اساس وضعیت بالینی:
+
+  // - CBC + Diff
+  // - Blood glucose
+  // - Na
+  // - K
+  // - Cl
+  // - HCO₃
+  // - Ca
+  // - Mg
+  // - Phosphorus
+  // - BUN
+  // - Creatinine
+  // - AST
+  // - ALT
+  // - Bilirubin
+  // - Albumin
+  // - Blood gas
+  // - Lactate
+  // - CRP در صورت شک به عفونت
+  // - Blood culture در صورت شک به sepsis/CNS infection
+  // - Urinalysis
+
+  // ### در موارد انتخابی:
+
+  // - Ammonia
+  // - Serum ketones / Beta-hydroxybutyrate
+  // - Toxicology
+  // - Acetaminophen level
+  // - Salicylate level
+  // - Ethanol
+  // - Drug-specific levels
+  // - Coagulation profile
+  // - Thyroid function tests
+  // - Metabolic studies
+
+  // ---
+
+  // ## 8. آمونیاک را در موارد مناسب فراموش نکنید
+
+  // در کودک با:
+
+  // - AMS بدون علت مشخص
+  // - استفراغ
+  // - سابقه اپیزودهای مشابه
+  // - بیماری کبدی
+  // - مصرف Valproate
+  // - شک به metabolic disorder
+
+  // → **Serum ammonia** بررسی شود.
+
+  // در hyperammonemia شدید، نمونه باید طبق پروتکل آزمایشگاه سریعاً منتقل و پردازش شود.
+
+  // ---
+
+  // ## 9. تصویربرداری مغز
+
+  // ### Brain CT
+
+  // CT مغز در مواردی مانند:
+
+  // - Trauma
+  // - شک به intracranial hemorrhage
+  // - focal neurologic deficit
+  // - علائم افزایش ICP
+  // - کاهش پیشرونده هوشیاری
+  // - شک به mass lesion
+  // - Hydrocephalus
+  // - شرایطی که MRI فوری در دسترس نیست
+
+  // کاربرد دارد.
+
+  // ### MRI Brain
+
+  // در صورت ثبات بیمار و شک به:
+
+  // - Encephalitis
+  // - Stroke
+  // - Demyelinating disease
+  // - Tumor
+  // - Venous thrombosis
+  // - سایر ضایعات ساختاری
+
+  // MRI حساسیت بیشتری برای بسیاری از ضایعات CNS دارد.
+
+  // ---
+
+  // ## 10. Lumbar Puncture
+
+  // در صورت شک به:
+
+  // - Meningitis
+  // - Encephalitis
+  // - CNS infection
+
+  // → LP در صورت ایمن بودن انجام شود.
+
+  // ### CSF studies
+
+  // - Opening pressure در صورت امکان
+  // - Cell count + differential
+  // - Protein
+  // - Glucose
+  // - Gram stain
+  // - Bacterial culture
+  // - PCR بر اساس شک بالینی
+  // - HSV PCR در صورت شک به encephalitis
+  // - سایر تست‌ها بر اساس اپیدمیولوژی و وضعیت بیمار
+
+  // ### مهم
+
+  // **LP نباید در بیماری که ناپایدار است یا contraindication برای LP دارد انجام شود.**
+
+  // در صورت شک جدی به meningitis/encephalitis:
+
+  // **Antibiotic ± Acyclovir نباید به دلیل انتظار برای LP یا CT به تأخیر بیفتد.**
+
+  // ---
+
+  // ## 11. چه زمانی قبل از LP تصویربرداری لازم است؟
+
+  // در صورت وجود شواهدی مانند:
+
+  // - Focal neurologic deficit
+  // - Signs of increased ICP
+  // - Papilledema
+  // - Significant alteration in consciousness
+  // - New focal seizure
+  // - Known CNS lesion
+  // - Immunocompromised state
+  // - سایر مواردی که احتمال mass effect مطرح است
+
+  // ابتدا stabilization و ارزیابی مناسب انجام شود.
+
+  // **تصمیم برای CT قبل از LP باید بر اساس معاینه و احتمال افزایش ICP/mass effect باشد، نه اینکه CT به‌صورت روتین پیش‌نیاز تمام LPها باشد.**
+
+  // ---
+
+  // ## 12. EEG
+
+  // **EEG در کودک با AMS بدون علت مشخص اهمیت زیادی دارد، به‌خصوص اگر:**
+
+  // - تشنج مشاهده شده باشد
+  // - سابقه epilepsy وجود داشته باشد
+  // - حرکات غیرطبیعی وجود داشته باشد
+  // - gaze deviation وجود داشته باشد
+  // - سطح هوشیاری بعد از تشنج به‌طور غیرمنتظره‌ای برنگردد
+  // - شک به Non-convulsive status epilepticus وجود داشته باشد
+
+  // در شک جدی به **NCSE**، EEG باید سریع انجام شود.
+
+  // ---
+
+  // # اوردر پیشنهادی در کودک با کاهش سطح هوشیاری با علت نامشخص
+
+  // ## Monitoring
+
+  // 1. Continuous cardiopulmonary monitoring
+  // 2. Continuous pulse oximetry
+  // 3. Frequent vital signs
+  // 4. Neurologic assessment / GCS
+  // 5. Strict I/O
+  // 6. Temperature monitoring
+
+  // ## Immediate
+
+  // 7. **POC Blood glucose STAT**
+  // 8. IV access؛ در صورت عدم دسترسی سریع → IO
+  // 9. Oxygen if hypoxemia/respiratory compromise
+  // 10. ECG
+  // 11. NPO until airway protection and swallowing are assessed
+
+  // ## Laboratory
+
+  // 12. CBC + Diff
+  // 13. Na, K, Cl, HCO₃
+  // 14. BUN, Cr
+  // 15. Glucose
+  // 16. Ca, Mg, P
+  // 17. AST, ALT, Bilirubin
+  // 18. Blood gas
+  // 19. Lactate when clinically indicated
+  // 20. CRP ± Blood culture if infection suspected
+  // 21. Ammonia when clinically indicated
+  // 22. Urinalysis
+  // 23. Urine toxicology when indicated
+
+  // ## Toxicology when indicated
+
+  // 24. Acetaminophen level
+  // 25. Salicylate level
+  // 26. Ethanol level
+  // 27. Specific drug levels according to exposure
+  // 28. ECG
+
+  // ## Neurologic evaluation
+
+  // 29. Brain CT when indicated
+  // 30. Brain MRI when indicated and patient is stable
+  // 31. EEG if seizure/NCSE is suspected
+  // 32. Neurology consultation when indicated
+
+  // ## Infection / CNS infection
+
+  // 33. Blood culture before antibiotics when feasible and when this does not delay treatment
+  // 34. LP if clinically indicated and safe
+  // 35. CSF cell count + differential
+  // 36. CSF glucose
+  // 37. CSF protein
+  // 38. Gram stain + culture
+  // 39. CSF PCR according to clinical suspicion
+
+  // ---
+
+  // # در صورت شک به مننگیت / مننگوانسفالیت
+
+  // ### پس از گرفتن Blood culture در صورت امکان:
+
+  // **Empiric antimicrobial therapy باید سریع شروع شود و نباید منتظر LP یا CT بماند اگر این اقدامات باعث تأخیر درمان شوند.**
+
+  // ### گزینه‌های رایج
+
+  // **Ceftriaxone**
+
+  // 50 mg/kg/dose IV q12h
+
+  // یا طبق پروتکل مرکز:
+
+  // 100 mg/kg/day IV
+
+  // **یا**
+
+  // **Cefotaxime**
+
+  // 50 mg/kg/dose IV q6h
+
+  // +
+
+  // **Vancomycin**
+
+  // 15 mg/kg/dose IV q6h
+
+  // با پایش سطح/Exposure طبق پروتکل مرکز.
+
+  // ### اگر Encephalitis مطرح است:
+
+  // **Acyclovir**
+
+  // 20 mg/kg/dose IV q8h
+
+  // با تنظیم دوز بر اساس سن، عملکرد کلیه و پروتکل مرکز.
+
+  // ---
+
+  // # Red Flags
+
+  // وجود هرکدام از موارد زیر نیازمند ارزیابی و اقدام فوری است:
+
+  // - Rapidly decreasing consciousness
+  // - GCS پایین یا رو به کاهش
+  // - Abnormal pupils
+  // - Focal neurologic deficit
+  // - Recurrent seizure
+  // - Suspected status epilepticus
+  // - Signs of increased ICP
+  // - Respiratory depression
+  // - Hypoxemia
+  // - Shock
+  // - Severe hypoglycemia
+  // - Hyperammonemia
+  // - Severe electrolyte abnormality
+  // - Suspected intracranial hemorrhage
+  // - Suspected meningitis/encephalitis
+  // - Severe toxic ingestion
+
+  // ---
+
+  // # نکته کلیدی
+
+  // در کودک با کاهش سطح هوشیاری، ترتیب ذهنی مناسب:
+
+  // **ABC → Glucose → Oxygenation/Perfusion → Seizure → Toxin → Infection → Metabolic → Structural CNS**
+
+  // و نباید صرفاً با مشاهده «کاهش هوشیاری» آن را به **post-ictal state** نسبت داد؛ اگر سطح هوشیاری طبق انتظار برنگردد، **NCSE، CNS infection، metabolic/toxic causes و structural lesion** باید مجدداً بررسی شوند.
+
+  // ### Reference
+
+  // بر اساس رویکردهای **UpToDate** به ارزیابی Altered Mental Status در کودک و ارزیابی/تشخیص encephalitis و status epilepticus، با تطبیق دوزها و اقدامات با پروتکل بیمارستانی و وضعیت بالینی بیمار.
+  // `,
+  //   },
   {
     slug: "altered-consciousness",
     title: "اپروچ به کاهش هوشیاری",
