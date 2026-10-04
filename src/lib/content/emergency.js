@@ -1271,6 +1271,8 @@ const topics = [
 
 ##  مرحله دوم ← Second-line Antiseizure Medication
 
+ **Levetiracetam**/**Phenytoin**/**Phenobarbital**/ **Sodium Valproate**
+
 ##  مرحله سوم ←  انتقال /بستری درPICU/ داروهای بیهوشی/Continuous Infusion 
 
 ---
