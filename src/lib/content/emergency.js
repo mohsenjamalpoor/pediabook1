@@ -1380,7 +1380,7 @@ const topics = [
 
 ---
 
-## <span class="text-red-600 font-bold"> مرحله سوم — Refractory Status Epilepticus<.span>
+## <span class="text-red-600 font-bold"> مرحله سوم — Refractory Status Epilepticus</span>
 
 اگر تشنج پس از درمان خط اول و خط دوم همچنان ادامه داشت:
 
