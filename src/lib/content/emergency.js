@@ -945,6 +945,7 @@ const topics = [
 | **فنی‌توئین** | <span dir="ltr">20 mg/kg</span><br>**Max: <span dir="ltr">1.5 g</span>** | <span dir="ltr">1 mg/kg/min</span><br>**حداکثر <span dir="ltr">50 mg/min</span>** | **افت فشارخون، برادی‌کاردی و آریتمی**؛ **مانیتورینگ قلبی ضروری است**؛ با **سرم قندی** داده نشود |
 | **فنوباربیتال** | <span dir="ltr">20 mg/kg</span><br>**Max: <span dir="ltr">1 g</span>** | <span dir="ltr">1 mg/kg/min</span><br>**حداکثر <span dir="ltr">60 mg/kg/min</span>** | **دپرسیون تنفسی** |
 | **سدیم والپروات** | <span dir="ltr">20 mg/kg</span><br>**Max: <span dir="ltr">3 g</span>** | <span dir="ltr">5 min</span> | **هپاتوتوکسیسیته**؛ در بیماری کبدی، شک به بیماری متابولیک و سن زیر ۲ سال مصرف نشود |
+
 ---
 
 ## <span class="text-red-600 font-bold"> مرحله اول — Benzodiazepines</span>
