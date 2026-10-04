@@ -654,20 +654,17 @@ const topics = [
 > </span>
 
 ---
-
 ### جدول داروها
 
 | دارو | مسیر و Dose / Max | سرعت تزریق | عوارض و نکات مهم |
 |---|---|---|---|
-| **میدازولام** | <span dir="ltr">IV/IO: 0.15–0.2 mg/kg</span><br><span dir="ltr">IM/IN/Buccal: 0.15–0.2 mg/kg</span><br>**Max: <span dir="ltr">10 mg/dose</span>** | <span dir="ltr">IV/IO</span> آهسته؛ <span dir="ltr">IM/IN/Buccal</span> بر اساس مسیر | **دپرسیون تنفسی و آپنه**؛ شروع اثر از چند ثانیه تا یک دقیقه |
-| **لورازپام** | <span dir="ltr">IV: 0.1 mg/kg</span><br>**Max: <span dir="ltr">4 mg</span>** | <span dir="ltr">1 mg/min</span>؛ حداکثر طی <span dir="ltr">2 min</span> | **دپرسیون تنفسی و آپنه**؛ شروع اثر <span dir="ltr">1–2 min</span> |
-| **دیازپام** | <span dir="ltr">IV/IO: 0.1–0.4 mg/kg</span><br>**Max: <span dir="ltr">10 mg</span>**<br><span dir="ltr">Rectal: 0.3–0.5 mg/kg</span><br>**Max: <span dir="ltr">20 mg</span>** | <span dir="ltr">IV/IO</span> آهسته، حدود <span dir="ltr">2 min</span><br><span dir="ltr">Rectal</span> | **دپرسیون تنفسی، آپنه، افت فشارخون و خواب‌آلودگی**؛ <span dir="ltr">IM</span> به‌دلیل جذب نامطمئن توصیه نمی‌شود |
-| <span class="text-green-600 font-bold">لووتیراستام</span> | <span dir="ltr">60 mg/kg</span><br>**Max: <span dir="ltr">4.5 g</span>** | <span dir="ltr">10–15 min</span> | **خواب‌آلودگی**؛ معمولاً تداخل دارویی و عوارض همودینامیک کمتری دارد |
+| **دیازپام** | <span dir="ltr">IV/IO: 0.1–0.2 mg/kg</span><br>**Max: <span dir="ltr">10 mg</span>**<br><span dir="ltr">Rectal: 0.5 mg/kg</span><br>**Max: <span dir="ltr">20 mg</span>** | <span dir="ltr">1 mg/min</span><br>**حداکثر <span dir="ltr">2 min</span>** | **دپرسیون تنفسی، آپنه**؛ <span dir="ltr">IM</span> به‌دلیل جذب نامطمئن توصیه نمی‌شود؛ شروع اثر چند ثانیه تا 1 دقیقه |
+| **میدازولام** | <span dir="ltr">IV/IO: 0.1–0.2 mg/kg</span><br><span dir="ltr">IM/IN: 0.2–0.3 mg/kg</span><br><span dir="ltr">Buccal: 0.5 mg/kg</span><br>**Max: <span dir="ltr">10 mg/dose</span>** | <span dir="ltr">1 mg/min</span><br>**حداکثر <span dir="ltr">2 min</span>** | **دپرسیون تنفسی و آپنه**؛ شروع اثر فوری |
+| **لورازپام** | <span dir="ltr">IV: 0.1 mg/kg</span><br>**Max: <span dir="ltr">4 mg</span>** | <span dir="ltr">1 mg/min</span><br>**حداکثر <span dir="ltr">2 min</span>** | **دپرسیون تنفسی و آپنه**؛ شروع اثر <span dir="ltr">1–2 min</span> |
+| <span class="text-green-600 font-bold">**لووتیراستام**</span> | <span dir="ltr">60 mg/kg</span><br>**Max: <span dir="ltr">4.5 g</span>** | <span dir="ltr">10–15 min</span> | **خواب‌آلودگی**؛ معمولاً تداخل دارویی و عوارض همودینامیک کمتری دارد |
 | **فنی‌توئین** | <span dir="ltr">20 mg/kg</span><br>**Max: <span dir="ltr">1.5 g</span>** | <span dir="ltr">1 mg/kg/min</span><br>**حداکثر <span dir="ltr">50 mg/min</span>** | **افت فشارخون، برادی‌کاردی و آریتمی**؛ **مانیتورینگ قلبی ضروری است**؛ با **سرم قندی** داده نشود |
 | **فنوباربیتال** | <span dir="ltr">20 mg/kg</span><br>**Max: <span dir="ltr">1 g</span>** | <span dir="ltr">1 mg/kg/min</span><br>**حداکثر <span dir="ltr">60 mg/kg/min</span>** | **دپرسیون تنفسی** |
 | **سدیم والپروات** | <span dir="ltr">20 mg/kg</span><br>**Max: <span dir="ltr">3 g</span>** | <span dir="ltr">5 min</span> | **هپاتوتوکسیسیته**؛ در بیماری کبدی، شک به بیماری متابولیک و سن زیر ۲ سال مصرف نشود |
-
-
 ---
 
 ## <span class="text-red-600 font-bold"> مرحله اول — Benzodiazepines</span>
