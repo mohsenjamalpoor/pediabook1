@@ -659,7 +659,7 @@ const topics = [
 
 ---
 
-#  مرحله اول — Benzodiazepines
+## <span class="text-red-600 font-bold"> مرحله اول — Benzodiazepines</span>
 
 
 
@@ -669,27 +669,26 @@ const topics = [
 - اگر تشنج **۵ دقیقه بعد** همچنان ادامه داشت → دوز دوم بنزودیازپین.
 - مجموعاً **حداکثر ۲ دوز مناسب بنزودیازپین**، شامل دوزهای دریافت‌شده قبل از ورود به اورژانس.
 
->  از تجویز دوزهای متعدد بنزودیازپین بدون ارزیابی مجدد خودداری شود؛ خطر **Respiratory Depression / Apnea** افزایش می‌یابد.
+>  اثر بنزودیازپین ها هرچه تشنج طول بکشد کمتر می شود .
 
 ---
 
-#  مرحله دوم — Second-line Antiseizure Medication
+## <span class="text-red-600 font-bold"> مرحله دوم — Second-line Antiseizure Medication</span>
 
 اگر پس از **۲ دوز بنزودیازپین** تشنج ادامه داشت:
 
-### گزینه‌ها
+### دارو های ضد تشنج
 
-1. **Levetiracetam**
-2. **Phenytoin**
-3. **Phenobarbital**
-4. **Sodium Valproate**
+
+
+ <span class="text-green-600 font-bold">Levetiracetam</span>/**Phenytoin**/**Phenobarbital**/**Sodium Valproate**
 
 > **نکته:** در حال حاضر بین داروهای خط دوم فوق، در بسیاری از گایدلاین‌ها یک دارو به‌عنوان برنده مطلق و قطعی تعیین نشده است و انتخاب دارو به سن کودک، علت احتمالی تشنج، داروهای مصرفی قبلی، بیماری زمینه‌ای و عوارض مورد انتظار بستگی دارد.
 
 
 ---
 
-#  مرحله سوم — Refractory Status Epilepticus
+## <span class="text-red-600 font-bold"> مرحله سوم — Refractory Status Epilepticus<.span>
 
 اگر تشنج پس از درمان خط اول و خط دوم همچنان ادامه داشت:
 
