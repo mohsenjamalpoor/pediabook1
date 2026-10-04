@@ -385,15 +385,10 @@ const topics = [
 
   - Lactate
   - Ammonia
-  - Serum ketones / Beta-hydroxybutyrate
-  - Toxicology
+  - Urine Toxicology
   - Acetaminophen level
-  - Salicylate level
-  - Ethanol
-  - Drug-specific levels
-  - Coagulation profile
-  - Thyroid function tests
-  - Metabolic studies
+  - سطح سرمی الکل
+  - LP
 
   ---
 
