@@ -628,28 +628,7 @@ const topics = [
 
   با تنظیم دوز بر اساس سن، عملکرد کلیه و پروتکل مرکز.
 
-  ---
-
-  # Red Flags
-
-  وجود هرکدام از موارد زیر نیازمند ارزیابی و اقدام فوری است:
-
-  - Rapidly decreasing consciousness
-  - GCS پایین یا رو به کاهش
-  - Abnormal pupils
-  - Focal neurologic deficit
-  - Recurrent seizure
-  - Suspected status epilepticus
-  - Signs of increased ICP
-  - Respiratory depression
-  - Hypoxemia
-  - Shock
-  - Severe hypoglycemia
-  - Hyperammonemia
-  - Severe electrolyte abnormality
-  - Suspected intracranial hemorrhage
-  - Suspected meningitis/encephalitis
-  - Severe toxic ingestion
+ 
 
 
   `,
